@@ -2,8 +2,32 @@
 <html>
 
 <head>
+    <title>Stock Simulation</title>
+    <html lang="en">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles/level.css') }}">
-</head>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles/main.css') }}">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <style>
+        .center {
+            text-align: center;
+        }
+        .button1 {
+            background-color: #F26E22;
+            color: white;
+            padding: 15px 28px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 20px;
+            margin: 25px auto 35px;
+            font-family: "Arial Light";
+            vertical-align: middle;
+            border-radius: 5px;
+}
 
 <body>
     <a href={{ url_for( 'home')}} class="button1">< BACK</a>
