@@ -12,11 +12,11 @@ h1 {
 .button1 {
     background-color: #FF5400;
     color: white;
-    padding: 20px 16px;
+    padding: 30px 20px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
-    font-size: 18px;
+    font-size: 20px;
     font-family: "Arial Light";
     vertical-align: middle;
     border-radius: 10px;
@@ -35,8 +35,8 @@ h1 {
 }
 
 .button3 {
-    background-color: #ededed;
-    color: gray;
+    background-color: #FF5400;
+    color: white;
     padding: 10px 24px;
     text-align: center;
     text-decoration: none;
@@ -62,7 +62,7 @@ button {
     text-align: center;
     text-decoration: none;
     display: inline-block;
-    font-size: 20px;
+    font-size: 2px;
     font-family: "Arial Light", Helvetica, sans-serif;
     margin: 0.25px 2px;
     vertical-align: middle;
