@@ -3,11 +3,12 @@
 
 <head>
 	<title>Stock Simulation</title>
-	<link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles/main.css') }}">
 	<html lang="en">
 	<meta charset="utf-8">
   	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles/level.css') }}">
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles/main.css') }}">
   	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 	<style>
@@ -30,15 +31,28 @@
 </body> -->
 
 	<body>
-	  	<h1 class="display-4">Stock Simulator</h1>
-
-		<div class="center">
-			<ul>
-				<li> <a href={{ url_for('levOne')}} class="button1">START</a> </li>
-				<li> <a href={{ url_for('levOne')}} class ="button">Level One</a> </li>
-				<li> <a href={{ url_for('levTwo')}} class ="button">Level Two</a> </li>
-				<li> <a href={{ url_for('levThree')}} class ="button">Level Three</a> </li>
-			</ul>
+		<div class="row">
+ 			<div class="col-sm-6 col-sm-offset-3">
+ 				<div class = "center">
+ 					<img src="static/logo.png" alt="foxstocks logo" height = 450px width = 450px /> <br>
+ 					<a href={{ url_for('levOne')}} class="button1">START</a> <br> <br>
+						<div class="panel-group" style="width:500px;margin-left:auto;margin-right:auto;">
+  							<div class="panel panel-default">
+   							<div class="panel-body">Level 1</div>
+ 						</div>
+  							<div class="panel panel-default">
+    						<div class="panel-body">Level 2</div>
+  						</div>
+  							<div class="panel panel-default">
+    						<div class="panel-body">Level 3</div>
+  						</div>
+ 				</div>
+ 				</div>
+ 			</div>
 		</div>
+
+			<!--	<li> <a href={{ url_for('levOne')}} class ="button">Level One</a> </li>
+				<li> <a href={{ url_for('levTwo')}} class ="button">Level Two</a> </li>
+				<li> <a href={{ url_for('levThree')}} class ="button">Level Three</a> </li> -->
 	</body>
 </html>
