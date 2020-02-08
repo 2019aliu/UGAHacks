@@ -4,6 +4,12 @@
 <head>
 	<title>Stock Simulation</title>
 	<link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles/main.css') }}">
+	<html lang="en">
+	<meta charset="utf-8">
+  	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 	<style>
 		.center {
 			text-align: center;
@@ -11,7 +17,7 @@
 	</style>
 </head>
 
-<body>
+<!-- <body>
 	<h1 class="mainHeader">Stock Simulation</h1>
 	<div class="center">
 		<ul>
@@ -21,6 +27,18 @@
 			<li> <a href={{ url_for('levThree')}} class="mainButton">Level Three</a> </li>
 		</ul>
 	</div>
-</body>
+</body> -->
 
+	<body>
+	  	<h1 class="display-4">Stock Simulator</h1>
+
+		<div class="center">
+			<ul>
+				<li> <a href={{ url_for('levOne')}} class="button1">START</a> </li>
+				<li> <a href={{ url_for('levOne')}} class ="button">Level One</a> </li>
+				<li> <a href={{ url_for('levTwo')}} class ="button">Level Two</a> </li>
+				<li> <a href={{ url_for('levThree')}} class ="button">Level Three</a> </li>
+			</ul>
+		</div>
+	</body>
 </html>
