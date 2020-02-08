@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<style>
+		h1 {text-align:center;
+			font-family: "Arial Light";
+			font-weight:lighter;
+			padding-top: 11px;
+			padding-bottom: 30px;
+			font-size:44px;
+			margin-bottom:20px;
+			display:block;
+			}
+
+		.button1 {background-color: #ededed;
+		    color: gray;
+		    padding: 20px 16px;
+		    text-align: center;
+		    text-decoration: none;
+		    display: inline-block;
+		    font-size: 18px;
+		    font-family: "Arial Light";
+		    vertical-align:middle;
+			border-radius: 4px;}
+
+		.button2 {
+		    color: darkgray;
+		    padding: 10px 16px;
+		    text-align: center;
+		    text-decoration: none;
+		    display: inline-block;
+		    font-size: 18px;
+		    font-family: "Arial Light";
+		    vertical-align:middle;
+			border-radius: 4px;}
+
+		.button3 {background-color: #ededed;
+		    color: gray;
+		    padding: 10px 24px;
+		    text-align: center;
+		    text-decoration: none;
+		    display: inline-block;
+		    font-size: 18px;
+		    font-family: "Arial Light";
+		    vertical-align:middle;
+			border-radius: 32px;}
+
+		.center {text-align:center;}
+
+		.right {text-align:right;}
+
+		button {background-color: #b6b6b6;
+		    color: #5b5b5b;
+		    padding: 15px 32px;
+		    text-align: center;
+		    text-decoration: none;
+		    display: inline-block;
+		    font-size: 20px;
+		    font-family: "Arial Light", Helvetica, sans-serif;
+		    margin: 0.25px 2px;
+		    vertical-align:middle;
+		    border:none;
+			width: 300px;}
+
+		/* The Modal (background) */
+		.modal {
+			display: none; /* Hidden by default */
+			position: fixed; /* Stay in place */
+			z-index: 1; /* Sit on top */
+			padding-top: 100px; /* Location of the box */
+			left: 0;
+			top: 0;
+			width: 100%; /* Full width */
+			height: 100%; /* Full height */
+			overflow: auto; /* Enable scroll if needed */
+			background-color: rgb(0,0,0); /* Fallback color */
+			background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+		}
+
+		/* Modal Content */
+		.modal-content {
+			background-color: #fefefe;
+			margin: auto;
+			padding: 20px;
+			border: 1px solid #888;
+			width: 80%;
+		}
+
+		.modal-header {
+			padding: 2px 16px;
+			background-color: white;
+			color: black;
+			font-family: "Arial Light";
+		}
+
+		.modal-body {padding: 2px 16px;
+		font-family: "Arial Light";
+		text-align:left;
+		margin-left:50px;
+		padding-bottom:300px;
+		margin-right:50px;}
+
+
+		/* The Close Button */
+		.close {
+			color: #aaaaaa;
+			float: right;
+			font-size: 28px;
+			font-weight: bold;
+		}
+
+		.close:hover,
+		.close:focus {
+			color: #000;
+			text-decoration: none;
+			cursor: pointer;
+		}
+
+		.modal-footer {
+		  padding: 2px 16px;
+		  color: white;
+		  vertical-align: bottom;
+		}
+
+	</style>
+	<body>
+		<a href={{ url_for('home')}} class="button1">< BACK</a>
+		<h1>Level One</h1>
+
+		<div class="center">
+			<button id="myBtn">Finish Level One</button>
+
+			<div id="pass" class="modal">
+				<div class="modal-content">
+					<div class="modal-header">
+					    <span class="close">&times;</span>
+					    <h2> Result: Passed!</h2>
+					</div>
+
+					<div class ="modal-body">
+				    	<p>You did the thing!</p>
+				    </div>
+
+				    <div class="modal-footer">
+						<div class="right">
+							<a href={{ url_for('home')}} class="button2">Exit</a>
+							<a href={{ url_for('levTwo')}} class="button3">Continue</a>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div id="fail" class="modal">
+				<div class="modal-content">
+					<div class="modal-header">
+					    <span class="close">&times;</span>
+					    <h2> Result: Not Quite!</h2>
+					</div>
+
+					<div class ="modal-body">
+				    	<p>You didn't do the thing!</p>
+				    </div>
+
+				    <div class="modal-footer">
+						<div class="right">
+							<a href={{ url_for('home')}} class="button2">Exit</a>
+							<a href={{ url_for('levOne')}} class="button3">Try Again</a>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<script>
+				var e = document.getElementById("flip-1");
+				var modal;
+				var span;
+				if (true) {
+					modal = document.getElementById("pass");
+
+					span =document.getElementsByClassName("close")[0];
+
+				} else {
+					modal = document.getElementById("fail");
+
+					span =document.getElementsByClassName("close")[1];
+					
+				}
+				var btn = document.getElementById("myBtn");
+
+				btn.onclick = function() {
+				  modal.style.display = "block";
+				}
+
+				span.onclick = function() {
+				  modal.style.display = "none";
+				}
+			</script>
+			
+		</div>
+	</body>
+</head>
+</html>
