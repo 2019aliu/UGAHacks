@@ -11,7 +11,7 @@ h1 {
 
 .button1 {
     background-color: #FF5400;
-    color: orange;
+    color: white;
     padding: 20px 16px;
     text-align: center;
     text-decoration: none;
@@ -19,7 +19,7 @@ h1 {
     font-size: 18px;
     font-family: "Arial Light";
     vertical-align: middle;
-    border-radius: 4px;
+    border-radius: 10px;
 }
 
 .button2 {
