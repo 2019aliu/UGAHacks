@@ -1,10 +1,19 @@
+from datetime import *
+
 class Level:
-    def __init__(self, threshold):
+    def __init__(self, threshold, startingDate):
         self.numDays = 0
         self.threshold = threshold
+        self.startingDate = datetime.strptime(startingDate, "%Y-%m-%d")
+
+    def getStartingDate(self):
+        return self.startingDate
 
     def getNumDays(self):
         return self.numDays
+
+    def getCurrentDate(self):
+        return self.startingDate + timedelta(days=self.numDays)
 
     def addNumDays(self, numDays):
         if self.numDays + numDays > 365:

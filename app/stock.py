@@ -13,13 +13,13 @@ class Stock:
 		for i in range(7):
 			self.data.append(db.stocksOhTwo.find_one({"stringDate": str(self.date - timedelta(days=i))})[self.name])
 	
-	def __init__(self, ticker):
+	def __init__(self, ticker, date=date(2003, 1, 24)):
 		self.ticker = ticker
 		name = db.stockTickers.find_one({"Ticker": ticker})['Name']
 		self.name = name
 		stockData = db.stocksOhTwo.find_one({"stringDate": "2003-01-24"})
 		self.price = stockData[name]
-		self.date = date(2003, 1, 24)
+		self.date = date
 		self.data = []
 		for i in range(7):
 			self.data.append(db.stocksOhTwo.find_one({"stringDate": str(self.date - timedelta(days=i))})[self.name])

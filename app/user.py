@@ -3,35 +3,44 @@ from level import Level
 from datetime import *
 
 class User:
+	'''
+	stockList: the list of stocks permitted in the level
+	LiquidAssets: amount of currently available assets
+	stocksBought: stock ticker --> number of shares bought
+	stocksShorted: stock ticker --> number of shares shorted
+	stockObjects: list of Stock Objects
+	updateStockValues: stock ticker --> current price
+	totalAssets: total value of User, calculated by amount of liquid assets added to stocksBought and stocksShorted
+	done: whether the user has finished
+	
+	'''
 	def __init__(self, stockList, level):
+		self.stockList = stockList
+		self.level = level
 		self.liquidAssets = 100000
 		self.stocksBought = {stock: 0 for stock in stockList}
 		self.stocksShorted = {stock: 0 for stock in stockList}
-		self.stockObjects = [Stock(stock) for stock in stockList]
+		self.stockObjects = [Stock(stockTicker) for stockTicker in stockList]
 		self.updatedStockValues = {stock: stonk.getPrice() for stock, stonk in zip(stockList, self.stockObjects)}
 		self.totalAssets = 0
 		self.done = False
-		self.success = False
-		self.short = 0
-		self.previousDate = 0
-		self.currentDate = 0
-		self.level = level
-		self.stockList = stockList
 
+	# get the level, which holds the startingDate
 	def getLevel(self):
 		return self.level
 
+	def getCurrentDate(self):
+		return self.level.getCurrentDate()
+
 	def getHistoricalData(self):
-		historicD = {stock: [] for stock in self.stocksBought}
+		historicD = {stock: {} for stock in self.stocksBought}
+		# historicD = {stock: [] for stock in self.stocksBought}
 		for stockTicker in historicD:
 			tempStock = Stock(stockTicker)
-			historicD[stockTicker] = tempStock.getPastData()
-		
-		# count = 0
-		# while (count < len(historicD)):
-		# 	self.stockObjects[count].setDate(datetime(2003, 1, 2))
-		# 	historicD[self.stockObjects[count].getTicker()] = self.stockObjects[count].updatePriceWithNumDays(7)
-		# 	count += 1
+			for i in range(7):
+				dateString = str(self.level.getCurrentDate() - timedelta(days=i))[:10]
+				historicD[stockTicker][dateString] = tempStock.getPastData()[i]
+			# historicD[stockTicker] = tempStock.getPastData()
 		return historicD
 
 	def getStockList(self):
@@ -94,6 +103,3 @@ class User:
 			self.success = True
 			self.done = True
 		self.totalAssets = 0
-
-user = User({'BLK', 'AAPL', 'JPM', 'MSFT'}, Level(105000))
-print(user.getHistoricalData())

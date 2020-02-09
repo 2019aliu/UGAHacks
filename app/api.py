@@ -29,7 +29,7 @@ def makeTransactions(buys, shorts):
     # maybe provide a final valuation here?
 
 def initializeLevelOne():
-    level1 = Level(105000)
+    level1 = Level(105000, "2003-02-01")
     myUser = User(['AAPL', 'BLK', 'MSFT', 'JPM'], level1)
     return myUser
 
