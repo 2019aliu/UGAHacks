@@ -39,8 +39,9 @@ def initializeLevelTwo():
     return myUser
 
 def initializeLevelThree():
-    myUser = User(['BLK', 'AAPL', 'NYT', 'DIS', 'GE', 'JPM', 'MSFT'])
-    level3 = Level()
+    level3 = Level(110000, "2008-01-01")
+    myUser = User(['BLK', 'AAPL', 'NYT', 'DIS', 'GE', 'JPM', 'MSFT'], level3)
+    return myUser
 
 def getNewValuation(inputUser):
     return inputUser.getTotalAssets()
