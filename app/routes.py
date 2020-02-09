@@ -1,7 +1,8 @@
-from flask import render_template
-from app import app
+from flask import Flask, redirect, url_for, render_template, request
 from api import *
 from user import *
+
+app = Flask(__name__)
 
 @app.route('/')
 def index():
@@ -18,10 +19,18 @@ def index():
     ]
     return render_template('index.html', title='Home', user=user, posts=posts)
 
-@app.route('/level1')
+@app.route('/level1', methods=['GET','POST'])
 def level1():
-    myUser = initializeLevelOne()
-    return render_template('levOne.html', historicalData, myUser.getTotalAssets(), myUser.getStockList(), myUser.getLevel().getNumDays())
+    if(request.method == 'POST'):
+        if request.form['submit_button'] == 'Do Something':
+            print("owo")
+        elif request.form['submit_button'] == 'Do Something Else':
+            print("uwu")
+        else:
+            print("hehe")
+    else:
+        myUser = initializeLevelOne()
+        return render_template('levOne.html', data = myUser.getHistoricalData(), assets = myUser.getTotalAssets(), portfolio = myUser.getStockList(), numDays = myUser.getLevel().getNumDays())
 
 @app.route('/level2')
 def level2():
@@ -34,3 +43,6 @@ def level3():
 @app.route('/end')
 def endPage():
     return render_template('theend.html')
+
+if __name__ == "__main__":
+    app.run(debug=True)

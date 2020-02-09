@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Stock Simulation</title>
+    <html lang="en">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles/level.css') }}">
+    <!--<link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles/main.css') }}">-->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <style>
+        h1 {
+            text-align: center;
+            font-family: 'Arial Light';
+            font-weight: lighter;
+            padding-top: 11px;
+            padding-bottom: 10px;
+            font-size: 44px;
+            margin-bottom: 10px;
+            display: block;
+        }
+        h2 {
+            text-align: center;
+            font-family: 'Arial Light';
+            font-weight: lighter;
+            padding-top: 11px;
+            padding-bottom: 15px;
+            font-size: 30px;
+            margin-bottom: 15px;
+            display: block;
+        }
+        h5 {
+            text-align: center;
+            font-family: 'Arial Light';
+            font-weight: lighter;
+            padding-top: 1px;
+            padding-bottom: 1px;
+            font-size: 17px;
+            margin-bottom: 1px;
+            display: block;
+        }
+        .center {
+            text-align: center;
+        }
+        .button1 {
+            background-color: #F26E22;
+            color: white;
+            padding: 15px 28px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 20px;
+            margin: 25px auto 35px;
+            font-family: 'Arial Light';
+            vertical-align: middle;
+            border-radius: 1px;
+        }
+        .i-am-centered { margin: auto; max-width: 800px;}
+    }
+
+    </style>
+</head>
+
+<body> <br>
+<div class="row" style="text-align: center;">
+    <div class="col-sm-3"></div>
+    <div class="col-sm-6">
+    <img src="static/foxstockhorizontalstackfinal-01.png" alt="foxstocks logo" height = 100px width = 375px />
+    </div>
+</div>
+<div class="row">
+  <div class="col-sm-1"></div>
+  <div class="col-sm-3"><a href={{ url_for('index')}} class="button1">< BACK</a></div>
+  <div class="col-sm-1"></div>
+  <div class="col-sm-2" style ="text-align:center;"><p style="text-align: center;
+            font-family: 'Arial Light';
+            font-weight: lighter;
+            padding-top: 11px;
+            padding-bottom: 30px;
+            font-size: 30px;
+            margin-bottom: 20px;
+            display: block;">Level One</p></div>
+</div>
+
+<div class = "i-am-centered">
+    <div class="row">
+        <div class="col-sm-1"></div>
+        <div class="col-sm-5">
+        <div class="card" style="width:450px;margin-right:30px;height:100px">
+            <div class="card-body">
+                <div class="media">
+                    <div class="media-left">
+                        <img src="static/foxstocksnumber1lessborder-01.png" class="media-object" style="width:60px">
+                    </div>
+                        <div class="media-body">
+                            <p style ="text-align:left;font-size:15px;padding-left:10px">Learn to buy and sell from 4 stock options with a starting value of $100,000 for a 5% increase</p>
+                        </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-2"></div>
+    <div class="col-sm-4">
+        <div class = "card" style="width:200px;margin-right:30px;height:100px">
+            <div class = "card-body" style="height:100px;line-height:1px;width:200px">
+                <p>Start:      February 2003</p>
+                <p>End:        January 2004</p><br><br><br><br><br><br><br><br><br><br>
+                <p>Current Date:</p>
+                <p>PLACEHOLDER</p>
+            </div>
+        </div>
+    </div>
+    </div>
+</div>
+
+<br><br><br>
+
+<div class="row">
+    <div class="col-sm-1"></div>
+    <div class="col-sm-4">
+<div id="accordion" style ="width:550px;">
+  <div class="card">
+    <div class="card-heading">
+      <h4 class="card-title">
+        <a class="card-link" data-toggle="collapse" href="#collapse1" style="font-size:15px;margin-left:15px;color:gray">
+        APPLE INC.</a>
+      </h4>
+    </div>
+    <div id="collapse1" class="card-collapse collapse in">
+        <div class="card-header" style="font-family: Arial Light;font-size: 11px"><strong>NASDAQ: AAPL</strong></div>
+      <div class="card-body" style="font-size:12px">
+          <table class="table table-bordered" style="max-height: 50px">
+            <thead>
+              <tr>
+                <th>Day</th>
+                <th>Price</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>oneDay</td>
+                <td>onePrice</td>
+              </tr>
+              <tr>
+                <td>OneDay</td>
+                <td>onePrice</td>
+              </tr>
+              <tr>
+                <td>threeDay</td>
+                <td>onePrice</td>
+              </tr>
+              <tr>
+                <td>fourDay</td>
+                <td>onePrice</td>
+              </tr>
+              <tr>
+                <td>fiveDay</td>
+                <td>onePrice</td>
+              </tr>
+              <tr>
+                <td>sixDay</td>
+                <td>onePrice</td>
+              </tr>
+              <tr>
+                <td>sevenDay</td>
+                <td>onePrice</td>
+              </tr>
+            </tbody>
+          </table>
+      </div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-heading">
+      <h4 class="card-title">
+        <a class="card-link" data-toggle="collapse" href="#collapse2" style="font-size:15px;margin-left:15px;color:gray">
+        BLACKROCK INC.</a>
+      </h4>
+    </div>
+    <div id="collapse2" class="card-collapse collapse in">
+        <div class="card-header" style="font-family: Arial Light;font-size: 11px"><strong>NYSE: BLK</strong></div>
+      <div class="card-body" style="font-size:12px">
+      <table class="table table-bordered" style="max-height: 50px">
+            <thead>
+              <tr>
+                <th>Day</th>
+                <th>Price</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>oneDay</td>
+                <td>onePrice</td>
+              </tr>
+              <tr>
+                <td>OneDay</td>
+                <td>onePrice</td>
+              </tr>
+              <tr>
+                <td>threeDay</td>
+                <td>onePrice</td>
+              </tr>
+              <tr>
+                <td>fourDay</td>
+                <td>onePrice</td>
+              </tr>
+              <tr>
+                <td>fiveDay</td>
+                <td>onePrice</td>
+              </tr>
+              <tr>
+                <td>sixDay</td>
+                <td>onePrice</td>
+              </tr>
+              <tr>
+                <td>sevenDay</td>
+                <td>onePrice</td>
+              </tr>
+            </tbody>
+          </table></div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-heading">
+      <h4 class="card-title">
+        <a class="card-link" data-toggle="collapse" href="#collapse3" style="font-size:15px;margin-left:15px;color:gray">
+        JPMORGAN CHASE & CO.</a>
+      </h4>
+    </div>
+    <div id="collapse3" class="card-collapse collapse in">
+      <div class="card-header" style="font-family: Arial Light;font-size: 11px"><strong>NYSE: JPM</strong></div>
+      <div class="card-body" style="font-size:12px">
+      <table class="table table-bordered" style="max-height: 50px">
+            <thead>
+              <tr>
+                <th>Day</th>
+                <th>Price</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>oneDay</td>
+                <td>onePrice</td>
+              </tr>
+              <tr>
+                <td>OneDay</td>
+                <td>onePrice</td>
+              </tr>
+              <tr>
+                <td>threeDay</td>
+                <td>onePrice</td>
+              </tr>
+              <tr>
+                <td>fourDay</td>
+                <td>onePrice</td>
+              </tr>
+              <tr>
+                <td>fiveDay</td>
+                <td>onePrice</td>
+              </tr>
+              <tr>
+                <td>sixDay</td>
+                <td>onePrice</td>
+              </tr>
+              <tr>
+                <td>sevenDay</td>
+                <td>onePrice</td>
+              </tr>
+            </tbody>
+          </table></div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-heading">
+      <h4 class="card-title">
+        <a class="card-link" data-toggle="collapse" href="#collapse4" style="font-size:15px;margin-left:15px;color:gray">
+        MICROSOFT CORP.</a>
+      </h4>
+    </div>
+    <div id="collapse4" class="card-collapse collapse in">
+        <div class="card-header" style="font-family: Arial Light;font-size: 11px"><strong>NASDAQ: MSFT</strong></div>
+      <div class="card-body" style="font-size:12px">
+      <table class="table table-bordered" style="max-height: 50px">
+            <thead>
+              <tr>
+                <th>Day</th>
+                <th>Price</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>oneDay</td>
+                <td>onePrice</td>
+              </tr>
+              <tr>
+                <td>OneDay</td>
+                <td>onePrice</td>
+              </tr>
+              <tr>
+                <td>threeDay</td>
+                <td>onePrice</td>
+              </tr>
+              <tr>
+                <td>fourDay</td>
+                <td>onePrice</td>
+              </tr>
+              <tr>
+                <td>fiveDay</td>
+                <td>onePrice</td>
+              </tr>
+              <tr>
+                <td>sixDay</td>
+                <td>onePrice</td>
+              </tr>
+              <tr>
+                <td>sevenDay</td>
+                <td>onePrice</td>
+              </tr>
+            </tbody>
+          </table></div>
+    </div>
+  </div>
+</div>
+</div>
+
+<div class = "col-sm-1"></div>
+
+    <div class = "col-sm-6">
+        <div class = "card" style="width:450px;text-align:left;"><br>
+            <h2>Order Stock</h2>
+            <form action="/action_page.php">
+              <div class="form-group">
+                <label for="email">Email address:</label>
+                <input type="email" class="form-control" placeholder="Enter email" id="email">
+              </div>
+              <div class="form-group">
+                <label for="pwd">Password:</label>
+                <input type="password" class="form-control" placeholder="Enter password" id="pwd">
+              </div>
+              <div class="form-group form-check">
+                <label class="form-check-label">
+                  <input class="form-check-input" type="checkbox"> Remember me
+                </label>
+              </div>
+              <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+    </div>
+
+    <br>
+
+    <div class = "row">
+        <div class="col-sm-3">
+            <h3>Portfolio</h3>
+        </div>
+        <div class="col-sm-7">
+            <h5>Current Account Value: $PLACEHOLDER</h5>
+        </div>
+    </div>
+
+    <br>
+
+    <div class="progress" style="height:40px;width:550px;">
+        <div class="progress-bar" style="width:70%;height:40px;font-size:17px;background-color:brown">Your Used Funds: PLACEHOLDER</div>
+    </div>
+
+    <br>
+
+    <table class="table table-hover" style="width:550px">
+    <thead>
+      <tr>
+        <th>Stock</th>
+        <th>Quantity</th>
+        <th>Actions</th>
+        <th>Price</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>AAPL - Apple Inc.</td>
+        <td>PLACEHOLDER</td>
+        <td>Buy Sell Cover SellShort</td>
+        <td>PLACEHOLDER</td>
+      </tr>
+      <tr>
+        <td>BLK - BlackRock</td>
+        <td>PLACEHOLDER</td>
+        <td>Buy Sell Cover SellShort</td>
+        <td>PLACEHOLDER</td>
+      </tr>
+      <tr>
+        <td>JPM - JPMorgan Chase</td>
+        <td>PLACEHOLDER</td>
+        <td>Buy Sell Cover SellShort</td>
+        <td>PLACEHOLDER</td>
+      </tr>
+      <tr>
+        <td>MSFT - Microsoft Inc.</td>
+        <td>PLACEHOLDER</td>
+        <td>Buy Sell Cover SellShort</td>
+        <td>PLACEHOLDER</td>
+      </tr>
+    </tbody>
+  </table>
+  <div class ="row">
+    <div class="col-sm-2"></div>
+    <div class="col-sm-4">
+          <div class="dropdown center" style="text-align: center;">
+          <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" style="background-color: #F26E22;
+            color: white;
+            padding: 15px 28px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 20px;
+            font-family: 'Arial Light';
+            vertical-align: middle;
+            border-radius: 1px;">
+            Select Run Time
+          </button>
+          <div class="dropdown-menu">
+            <a class="dropdown-item" href="#">One Week</a>
+            <a class="dropdown-item" href="#">Two Weeks</a>
+            <a class="dropdown-item" href="#">One Month</a>
+          </div>
+        </div>
+    </div>
+</div>
+
+<br><br><br><br><br><br><br>
+
+</div>
+<!-- Modal -->
+
+<div id="pass" class="modal">
+    <div class="modal-content" style="max-height:600px;max-width:600px">
+      <div class="modal-header">
+        <p style="font-size:25px;margin-left:15px;color:gray;text-align:center">Level 1 Result: Passed!</p><br>
+      </div>
+      <div class="modal-body" style="text-align:left;max-height:150px">
+            <br><h6><strong>Mid 2000s: Rise of the Housing Bubble</strong></h6>
+            <p>
+                In the mid-2000s, the U.S. economy experienced a housing bubble that had a direct relationship to the Great Recession. Following the dotcom bubble, values in real estate began to creep up, fueling a rise in homeownership among speculative buyers, investors, and other consumers. This drove home prices up even more.
+                <br><br><br><a href="https://www.investopedia.com/articles/07/housing_bubble.asp" style="color:#F26E22">Read More</a>
+            </p>
+      </div>
+      <div class="modal-footer">
+        <div class="right"><br>
+            <a href={{ url_for('index')}} class="btn btn-secondary">Exit</a>
+            <a href={{ url_for('level2')}} class="btn btn-primary" style="background-color:#F26E22">Continue to Level 2</a>
+        </div>
+      </div>
+  </div>
+</div>
+
+<div id="fail" class="modal">
+    <div class="modal-content" style="max-height:600px;max-width:600px">
+      <div class="modal-header">
+        <p style="font-size:25px;margin-left:15px;color:gray;text-align:center">Level 1 Result: Failed</p><br>
+      </div>
+      <div class="modal-body" style="text-align:left;max-height:150px">
+            <br><h6><strong>Hint: Current Events</strong></h6>
+            <p>
+            In the mid-2000s, how did the housing market affect the stock market?
+            <br><br><br><a href="https://www.investopedia.com/articles/07/housing_bubble.asp" style="color:#F26E22">Read More</a>
+            </p>
+      </div>
+      <div class="modal-footer">
+        <div class="right"><br>
+            <a href={{ url_for('index')}} class="btn btn-secondary">Exit</a>
+            <a href={{ url_for('level1')}} class="btn btn-primary" style="background-color:#F26E22">Try Again</a>
+        </div>
+      </div>
+  </div>
+</div>
+
+        <script>
+            var e = document.getElementById("flip-1");
+            var modal;
+            var span;
+            if (true) {
+                modal = document.getElementById("pass");
+
+                span = document.getElementsByClassName("close")[0];
+
+            } else {
+                modal = document.getElementById("fail");
+
+                span = document.getElementsByClassName("close")[1];
+
+            }
+            var btn = document.getElementById("myBtn");
+
+            btn.onclick = function () {
+                modal.style.display = "block";
+            }
+
+            span.onclick = function () {
+                modal.style.display = "none";
+            }
+        </script>
+
+    </div>
+</body>
+
+</html>
