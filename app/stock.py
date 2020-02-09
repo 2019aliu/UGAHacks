@@ -1,5 +1,5 @@
 import db
-from datetime import date
+from datetime import *
 
 class Stock:
 	# args are all arguments that are single value (i.e. 7, true)
@@ -21,9 +21,13 @@ class Stock:
 	def getPrice(self):
 		return self.price
 
-	def updatePrice(self, day):
-		price = db.stocksOhTwo.find_one({"stringDate": day})[self.name]
-		return price
+	def updatePriceWithDate(self, day):
+		# newDate = datetime.strptime(day, "%Y-%m-%d")
+		# self.price = db.stocksOhTwo.find_one({"stringDate": newDate})[self.name]
+		self.price = db.stocksOhTwo.find_one({"stringDate": str(day)})[self.name]
+		# return self.price
+	
+	def updatePriceWithNumDays(self, numDays)
 
 # testS = Stock("AAPL")
 # print(testS.getPrice())
