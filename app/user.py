@@ -5,11 +5,11 @@ from datetime import *
 class User:
 	'''
 	stockList: the list of stocks permitted in the level
+	level: the level that user is currently working on. This is just a level object
 	LiquidAssets: amount of currently available assets
 	stocksBought: stock ticker --> number of shares bought
 	stocksShorted: stock ticker --> number of shares shorted
-	stockObjects: list of Stock Objects
-	updateStockValues: stock ticker --> current price
+	stockValues: stock ticker --> current price
 	totalAssets: total value of User, calculated by amount of liquid assets added to stocksBought and stocksShorted
 	done: whether the user has finished
 	
@@ -20,11 +20,9 @@ class User:
 		self.liquidAssets = 100000
 		self.stocksBought = {stock: 0 for stock in stockList}
 		self.stocksShorted = {stock: 0 for stock in stockList}
-		self.stockObjects = [Stock(stockTicker) for stockTicker in stockList]
-		self.updatedStockValues = {stock: stonk.getPrice() for stock, stonk in zip(stockList, self.stockObjects)}
+		self.stockValues = {ticker: Stock(ticker).getPrice() for ticker in stockList}
 		self.totalAssets = 0
 		self.done = False
-
 	'''
 	Getters
 	'''
@@ -44,7 +42,6 @@ class User:
 			for i in range(7):
 				dateString = str(self.level.getCurrentDate() - timedelta(days=i))[:10]
 				historicD[stockTicker].append((dateString, tempStock.getPastData()[i]))
-			# historicD[stockTicker] = tempStock.getPastData()
 		return historicD
 
 	def getStockList(self):
@@ -52,6 +49,14 @@ class User:
 
 	def getStocksBought(self):
 		return self.stocksBought
+	
+	def getTotalAssets(self):
+		self.calculateTotalAssets()
+		return self.totalAssets
+	
+	# REMOVE THIS, IT IS JUST FOR TESTING
+	def getStockValues(self):
+		return self.stockValues
 
 	'''
 	Buying and selling stocks and shorts
@@ -64,16 +69,20 @@ class User:
 	def buyStock(self, stockTicker):
 		stockOBJ = Stock(stockTicker)
 		if (self.liquidAssets < stockOBJ.getPrice()):
-			raise ValueError('You do not have enough liquid assets to purchase this stock, sorry!')
+			raise ValueError('You do not have enough liquid assets to purchase this stock.')
 		else:
 			self.stocksBought[stockTicker] += 1
 			self.liquidAssets -= stockOBJ.getPrice()
 	
 	def sellStock(self, stockTicker):
-		if (self.stocksBought[stock.ticker] >= 1):
+		stockOBJ = Stock(stockTicker)
+		if (self.stocksBought[stockTicker] == 0):
+			raise ValueError('You do not have stocks of this ticker to sell.')
+		else:
 			self.stocksBought[stock.ticker] -= 1
 			self.liquidAssets = self.liquidAssets + stock.getPrice()
 
+	# TODO: fix buying and selling shorts
 	def buyShort(self, stock):
 		self.stocksShorted[stock.ticker] += 1
 		self.liquidAssets = self.liquidAssets + self.stockShorted[stock.ticker].getPrice()
@@ -85,33 +94,33 @@ class User:
 		if (self.stockShorted[stock.ticker] >= 1 and self.liquidAssets >= stock.getPrice()):
 			self.stocksShorted[stock.ticker] -= 1
 			self.liquidAssets = self.liquidAssets - self.stockShorted[stock.ticker].getPrice()
-			# self.short -= 1
 
+	# so this method can be done a lot more pythonically
+	# BUT I'm desperate so no (and also easier debugging -- wait I don't debug oopsies)
+	def calculateTotalAssets(self):
+		interest = 0.05
+		newValuation = self.liquidAssets
+		# bStock is a stock ticker
+		for bStock in self.stocksBought:
+			newValuation += self.stocksBought[bStock] * self.stockValues[bStock]
+		for sStock in self.stocksShorted:
+			newValuation -= self.stocksShorted[sStock] * self.stockValues[sStock] * (1 + interest)
+		self.totalAssets = newValuation
 
+	def updateTime(self, numDays):
+		self.level.addNumDays(numDays)
+		# update the stock prices
+		for ticker in self.stockValues:
+			# self.stockValues[ticker] = Stock(ticker, self.level.getCurrentDate()).getPrice()
+			s = Stock(ticker)
+			s.updatePriceWithDate(self.level.getCurrentDate())
+			self.stockValues[ticker] = s.getPrice()
+		self.calculateTotalAssets()
 
-	def getTotalAssets(self):
-		listTick = ['BLK', 'AAPL', 'NYT', 'DIS', 'GE', 'JPM', 'MSFT']
-		count = 0
-		self.totalAssets = self.liquidAssets
-		while (count < len(listTick)):
-			try:
-				self.totalAssets = self.totalAssets + self.stocksBought[listTick[count]]
-			except:
-				print("")
-
-			try:
-				if len(self.stocksShorted) > 0:
-					self.totalAssets -= self.stocksShorted[listTick[count]] * 0.05 * self.updatedStockValues[listTick[count]]
-					# self.totalAssets -= self.stocksShorted[listTick[count]] * 0.05 * self.updatedStockValues[listTick[count]] * (currentDate-previousDate)
-			except:
-				print("")
-			count += 1
-		# self.previousDate = self.currentDate
-		return self.totalAssets
-
-	def checkSuccessAndTime(self, level):
-		count = 0
-		getTotalAssets()
-		if (self.totalAssets > level.getThreshold()):
-			self.done = True
-		self.totalAssets = 0
+	def checkSuccess(self):
+		self.calculateTotalAssets()
+		return totalAssets > level.getThreshold()
+	
+	def checkFailure(self):
+		self.calculateTotalAssets()
+		return self.level.getNumDays() >= 365 && totalAssets < 0

@@ -4,7 +4,7 @@ class Level:
     def __init__(self, threshold, startingDate):
         self.numDays = 0
         self.threshold = threshold
-        self.startingDate = datetime.strptime(startingDate, "%Y-%m-%d")
+        self.startingDate = datetime.strptime(startingDate, "%Y-%m-%d").date()
 
     def getStartingDate(self):
         return self.startingDate

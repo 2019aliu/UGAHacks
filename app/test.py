@@ -12,13 +12,22 @@ import datetime
 
 # testStock = Stock("AAPL")
 # print(testStock.getPrice())
+# print("\n\n\n")
 # testStock.updatePriceWithNumDays(369)
 # print(testStock.getPrice())
+# print("\n\n\n")
 # print(testStock.getPastData())
+# print("\n\n\n")
 
-
-testUser = User(['AAPL', 'BLK'], Level(101, "2003-03-01"))
+testUser = User(['AAPL', 'BLK'], Level(101, "2004-03-01"))
 print(testUser.getHistoricalData())
 # testUser.buyStock(Stock('AAPL'))
 testUser.buyStock("AAPL")
-print(testUser.getStocksBought())
+# print(testUser.getStocksBought())
+print(testUser.getTotalAssets())
+print("\n\n\n")
+print(testUser.getStockValues())
+testUser.updateTime(7)
+print(testUser.getStockValues())
+
+
