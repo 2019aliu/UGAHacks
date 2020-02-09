@@ -25,6 +25,10 @@ class User:
 		self.totalAssets = 0
 		self.done = False
 
+	'''
+	Getters
+	'''
+
 	# get the level, which holds the startingDate
 	def getLevel(self):
 		return self.level
@@ -33,13 +37,13 @@ class User:
 		return self.level.getCurrentDate()
 
 	def getHistoricalData(self):
-		historicD = {stock: {} for stock in self.stocksBought}
+		historicD = {stock: [] for stock in self.stocksBought}
 		# historicD = {stock: [] for stock in self.stocksBought}
 		for stockTicker in historicD:
 			tempStock = Stock(stockTicker)
 			for i in range(7):
 				dateString = str(self.level.getCurrentDate() - timedelta(days=i))[:10]
-				historicD[stockTicker][dateString] = tempStock.getPastData()[i]
+				historicD[stockTicker].append((dateString, tempStock.getPastData()[i]))
 			# historicD[stockTicker] = tempStock.getPastData()
 		return historicD
 
@@ -49,15 +53,26 @@ class User:
 	def getStocksBought(self):
 		return self.stocksBought
 
+	'''
+	Buying and selling stocks and shorts
+	'''
+
+	def buyStock(self, stockTicker, quantity):
+		for i in range(quantity):
+			buyStock(stockTicker)
+
 	def buyStock(self, stockTicker):
 		stockOBJ = Stock(stockTicker)
-		buyStock(self, stockOBJ)
-
-	def buyStock(self, stock):
-		if (self.liquidAssets >= stock.getPrice()):
-			self.stocksBought[stock.ticker] += 1
-			self.liquidAssets = self.liquidAssets - stock.getPrice()
-			# self.short += 1
+		if (self.liquidAssets < stockOBJ.getPrice()):
+			raise ValueError('You do not have enough liquid assets to purchase this stock, sorry!')
+		else:
+			self.stocksBought[stockTicker] += 1
+			self.liquidAssets -= stockOBJ.getPrice()
+	
+	def sellStock(self, stockTicker):
+		if (self.stocksBought[stock.ticker] >= 1):
+			self.stocksBought[stock.ticker] -= 1
+			self.liquidAssets = self.liquidAssets + stock.getPrice()
 
 	def buyShort(self, stock):
 		self.stocksShorted[stock.ticker] += 1
@@ -65,12 +80,6 @@ class User:
 		if (self.previousDate == 0):
 			self.previousDate = self.level.getNumDays()
 		self.currentDate = self.level.getNumDays()
-
-
-	def sellStock(self, stock):
-		if (self.stocksBought[stock.ticker] >= 1):
-			self.stocksBought[stock.ticker] -= 1
-			self.liquidAssets = self.liquidAssets + stock.getPrice()
 
 	def sellShort(self, stock):
 		if (self.stockShorted[stock.ticker] >= 1 and self.liquidAssets >= stock.getPrice()):
