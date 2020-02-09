@@ -34,8 +34,9 @@ def initializeLevelOne():
     return myUser
 
 def initializeLevelTwo():
-    myUser = User(['AAPL', 'BLK', 'MSFT', 'JPM'])
-    level2 = Level()
+    level2 = Level(107000, "2016-01-01")
+    myUser = User(['AAPL', 'BLK', 'MSFT', 'JPM'], level2)
+    return myUser
 
 def initializeLevelThree():
     myUser = User(['BLK', 'AAPL', 'NYT', 'DIS', 'GE', 'JPM', 'MSFT'])

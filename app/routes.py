@@ -6,6 +6,7 @@ from stock import Stock
 app = Flask(__name__)
 
 myUser = initializeLevelOne()
+myUserTwo = initializeLevelTwo()
 
 @app.route('/')
 def index():
@@ -24,7 +25,7 @@ def index():
 
 @app.route('/level1', methods=['GET','POST'])
 def level1():
-    return render_template('levOne.html', data = myUser.getHistoricalData(), assets = myUser.getTotalAssets(), portfolio = myUser.getStockList(), numDays = myUser.getLevel().getNumDays())
+    return render_template('levOne.html', histData = myUser.getHistoricalData(), assets = myUser.getTotalAssets(), portfolio = myUser.getStocksBought(), currentDate = myUser.getCurrentDate())
 
 @app.route('/level1/result/<days>', methods=['GET','POST'])
 def results(days = 0):
@@ -44,9 +45,27 @@ def results(days = 0):
         return render_template('index.html')
     return render_template('index.html')
 
-@app.route('/level2')
+@app.route('/level2', methods=['GET','POST'])
 def level2():
-    return render_template('levTwo.html')
+    return render_template('levOne.html', histData = myUserTwo.getHistoricalData(), assets = myUserTwo.getTotalAssets(), portfolio = myUserTwo.getStocksBought(), currentDate = myUserTwo.getCurrentDate())
+
+@app.route('/level2/result/<days>', methods=['GET','POST'])
+def results2(days = 0):
+    if (request.method == 'POST'):
+        if request.form['submit_button'] == 'Do Something':
+            return("owo")
+        elif request.form['submit_button'] == 'Do Something Else':
+            print(request.form['numBuy'])
+            print(request.form['numShort'])
+            for i in range(int(request.form['numBuy'])):
+                myUserTwo.buyStock(Stock('AAPL'))
+            print(myUserTwo.getStockList())
+            print(request.form['buySell'])
+            return("uwu")
+        else:
+            return("hehe")
+        return render_template('index.html')
+    return render_template('index.html')
 
 @app.route('/level3')
 def level3():
