@@ -8,3 +8,4 @@ class Level:
         return self.numDays
     
     def setNumDays(self, newNaps)
+    	self.numDays = newNaps
