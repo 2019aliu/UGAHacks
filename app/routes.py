@@ -28,23 +28,69 @@ def index():
 def level1():
     return render_template('levOne.html', histData = myUser.getHistoricalData(), assets = myUser.getTotalAssets(), portfolio = myUser.getStocksBought(), currentDate = myUser.getCurrentDate())
 
-@app.route('/level1/result/<days>', methods=['GET','POST'])
+# @app.route('/level1/result/<days>', methods=['GET','POST'])
+@app.route('/level1/result/', methods=['GET', 'POST'])
 def results(days = 0):
-    if (request.method == 'POST'):
-        if request.form['submit_button'] == 'Do Something':
-            return("owo")
-        elif request.form['submit_button'] == 'Do Something Else':
-            print(request.form['numBuy'])
-            print(request.form['numShort'])
-            for i in range(int(request.form['numBuy'])):
-                myUser.buyStock(Stock('AAPL'))
-            print(myUser.getStockList())
-            print(request.form['buySell'])
-            return("uwu")
+    if (request.method == "POST"):
+        if request.form['submit_button'] == 'Submit':
+            ticker = request.form['stockName']
+            numBuy = int(request.form['numBuy'])
+            # numShort = int(request.form['numShort'])
+            if (request.form['buySell'] == 'Buy'):
+                for i in range(numBuy):
+                    myUser.buyStock(ticker)
+            else:
+                for i in range(numBuy):
+                    myUser.sellStock(ticker)
+            myUser.calculateTotalAssets()
+            # return("owo")
+            # return myUser
+            return redirect('/level1')
+            # return render_template('levOne.html', histData = myUser.getHistoricalData(), assets = myUser.getTotalAssets(), portfolio = myUser.getStocksBought(), currentDate = myUser.getCurrentDate())
+        elif request.form['submit_button'] == 'Skip Forward':
+            print(request.form)
+            # print(request.form['numBuy'])
+            # print(request.form['numShort'])
+            if (request.form['sel1'] == 'One Week'):
+                myUser.updateTime(7)
+            elif (request.form['sel1'] == 'Two Weeks'):
+                myUser.updateTime(14)
+            else:
+                myUser.updateTime(28)
+            # for ticker in myUser.getStocksBought():
+            #     for i in range(int(myUser.getStocksBought()[ticker])):
+            #         myUser.buyStock(ticker)
+            # print(myUser.getStockList())
+            # print(request.form['buySell'])
+            myUser.calculateTotalAssets()
+            return redirect('/level1')
         else:
             return("hehe")
-        return render_template('index.html')
-    return render_template('index.html')
+    # if (request.method == 'POST'):
+    #     if request.form['submit_button'] == 'Submit':
+    #         ticker = request.form['stockName']
+    #         numBuy = int(request.form['numBuy'])
+    #         # numShort = int(request.form['numShort'])
+    #         if (request.form['buySell'] == 'Buy'):
+    #             for i in range(numBuy):
+    #                 myUser.buyStock(ticker)
+    #         else:
+    #             for i in range(numBuy):
+    #                 myUser.sellStock(ticker)
+    #         return redirect('/level1')
+    #         # return render_template('levOne.html', histData = myUser.getHistoricalData(), assets = myUser.getTotalAssets(), portfolio = myUser.getStocksBought(), currentDate = myUser.getCurrentDate())
+    #     elif request.form['submit_button'] == 'Do Something Else':
+    #         print(request.form['numBuy'])
+    #         print(request.form['numShort'])
+    #         for i in range(int(request.form['numBuy'])):
+    #             myUser.buyStock(Stock('AAPL'))
+    #         print(myUser.getStockList())
+    #         print(request.form['buySell'])
+    #         return("uwu")
+    #     else:
+    #         return("hehe")
+    #     return render_template('index.html')
+    # return render_template('index.html')
 
 @app.route('/level2', methods=['GET','POST'])
 def level2():

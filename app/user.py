@@ -22,7 +22,7 @@ class User:
 		self.stocksShorted = {stock: 0 for stock in stockList}
 		self.stockValues = {ticker: Stock(ticker).getPrice() for ticker in stockList}
 		self.totalAssets = 0
-		self.done = False
+		self.ipo = {'AAPL': 22, 'BLK': 14, 'DIS': 13.88, 'GE': 0.8, 'JPM': 9.78, 'MSFT': 21, 'NYT': 42}
 	'''
 	Getters
 	'''
@@ -38,10 +38,11 @@ class User:
 		historicD = {stock: [] for stock in self.stocksBought}
 		# historicD = {stock: [] for stock in self.stocksBought}
 		for stockTicker in historicD:
+			ipoPrice = self.ipo[stockTicker]
 			tempStock = Stock(stockTicker)
 			for i in range(7):
 				dateString = str(self.level.getCurrentDate() - timedelta(days=i))[:10]
-				historicD[stockTicker].append((dateString, tempStock.getPastData()[i]))
+				historicD[stockTicker].append((dateString, tempStock.getPastData()[i] * ipoPrice))
 		return historicD
 
 	def getStockList(self):
@@ -64,7 +65,7 @@ class User:
 
 	def buyStock(self, stockTicker, quantity):
 		for i in range(quantity):
-			buyStock(stockTicker)
+			self.buyStock(stockTicker)
 
 	def buyStock(self, stockTicker):
 		stockOBJ = Stock(stockTicker)
@@ -79,8 +80,8 @@ class User:
 		if (self.stocksBought[stockTicker] == 0):
 			raise ValueError('You do not have stocks of this ticker to sell.')
 		else:
-			self.stocksBought[stock.ticker] -= 1
-			self.liquidAssets = self.liquidAssets + stock.getPrice()
+			self.stocksBought[stockTicker] -= 1
+			self.liquidAssets += stockOBJ.getPrice()
 
 	# TODO: fix buying and selling shorts
 	def buyShort(self, stock):
@@ -123,4 +124,4 @@ class User:
 	
 	def checkFailure(self):
 		self.calculateTotalAssets()
-		return self.level.getNumDays() >= 365 && totalAssets < 0
+		return self.level.getNumDays() >= 365 and totalAssets < 0
