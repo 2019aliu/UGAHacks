@@ -7,8 +7,10 @@ class Level:
     def getNumDays(self):
         return self.numDays
     
-    def setNumDays(self, newNaps):
-    	self.numDays = newNaps
+    def addNumDays(self, numDays):
+        if self.numDays + numDays > self.threshold:
+            raise ValueError('The time limit of %d has been exceeded when fast forwarding by %d days' % (self.threshold, numDays))
+        self.numDays += numDays
 
-    def getThreshold():
+    def getThreshold(self):
     	return self.threshold

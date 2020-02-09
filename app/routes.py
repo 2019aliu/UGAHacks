@@ -2,7 +2,6 @@ from flask import render_template
 from app import app
 
 @app.route('/')
-@app.route('/index')
 def index():
     user = {'username': 'Miguel'}
     posts = [
@@ -16,3 +15,20 @@ def index():
         }
     ]
     return render_template('index.html', title='Home', user=user, posts=posts)
+
+@app.route('/level1')
+def level1():
+    
+    return render_template('levOne.html')
+
+@app.route('/level2')
+def level2():
+    return render_template('levOne.html')
+
+@app.route('/level3')
+def level3():
+    return render_template('levOne.html')
+
+@app.route('/end')
+def endPage():
+    return render_template('theend.html')
