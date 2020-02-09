@@ -19,7 +19,7 @@ class Stock:
 		return self.price
 
 	def updatePrice(self, day):
-		price = db.stocksOhTwo.find_one({"Date": day})[self.name]
+		price = db.stocksOhTwo.find_one({"stringDate": day})[self.name]
 		return price
 
 testS = Stock("AAPL")
