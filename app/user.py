@@ -27,12 +27,16 @@ class User:
 		if (stockShorted[stock.ticker] >= 1):
 			stocksShorted[stock.ticker] = stocksShorted[stock.ticker] - 1
 
+	def getTotalAssets():
+		totalAssets = liquidAssets + stocksBought['BLK'] + stocksBought['AAPL'] + stocksBought['NYT'] + stocksBought['DIS'] + stocksBought['GE'] + stocksBought['JPM'] + stocksBought['MSFT']
+
 	def checkSuccessAndTime(threshold):
 		count = 0
-		totalAssets = liquidAssets + stocksBought['BLK'] + stocksBought['AAPL'] + stocksBought['NYT'] + stocksBought['DIS'] + stocksBought['GE'] + stocksBought['JPM'] + stocksBought['MSFT']
+		getTotalAssets()
 		if (totalAssets > threshold):
 			success = true
 			done = true
+		totalAssets = 0
 
 
 user = new User()
