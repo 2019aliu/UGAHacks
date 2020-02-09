@@ -1,8 +1,9 @@
-import user
-import db
+from user import User
 from level import Level
+from stock import Stock
+from datetime import *
 
-myUser = User()
+import db
 
 # input: ticker --> quantity (pos or neg)
 def makeTransactions(buys, shorts):
@@ -28,16 +29,16 @@ def makeTransactions(buys, shorts):
     # maybe provide a final valuation here?
 
 def initializeLevelOne():
-	myUser = new User(['AAPL', 'BLK', 'MSFT', 'JPM'])
-	level1 = new Level()
+	myUser = User(['AAPL', 'BLK', 'MSFT', 'JPM'])
+	level1 = Level()
 
 def initializeLevelTwo():
-	myUser = new User(['AAPL', 'BLK', 'MSFT', 'JPM'])
-	level2 = new Level()
+	myUser = User(['AAPL', 'BLK', 'MSFT', 'JPM'])
+	level2 = Level()
 
 def initializeLevelThree():
-	myUser = new User(['BLK', 'AAPL', 'NYT', 'DIS', 'GE', 'JPM', 'MSFT'])
-	level3 = new Level()
+	myUser = User(['BLK', 'AAPL', 'NYT', 'DIS', 'GE', 'JPM', 'MSFT'])
+	level3 = Level()
 
 def getNewValuation(inputUser):
 	return inputUser.getTotalAssets()

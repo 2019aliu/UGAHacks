@@ -1,5 +1,6 @@
 from level import Level
 from stock import Stock
+from api import *
 import datetime
 
 # testL = Level("8/6/09", 365)
@@ -12,3 +13,5 @@ testStock = Stock("AAPL")
 print(testStock.getPrice())
 testStock.updatePriceWithNumDays(369)
 print(testStock.getPrice())
+print(testStock.getPastData())
+
