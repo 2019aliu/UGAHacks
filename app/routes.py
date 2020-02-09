@@ -1,6 +1,7 @@
 from flask import Flask, redirect, url_for, render_template, request
 from api import *
 from user import *
+from stock import Stock
 
 app = Flask(__name__)
 
@@ -31,6 +32,12 @@ def results(days = 0):
         if request.form['submit_button'] == 'Do Something':
             return("owo")
         elif request.form['submit_button'] == 'Do Something Else':
+            print(request.form['numBuy'])
+            print(request.form['numShort'])
+            for i in range(int(request.form['numBuy'])):
+                myUser.buyStock(Stock('AAPL'))
+            print(myUser.getStockList())
+            print(request.form['buySell'])
             return("uwu")
         else:
             return("hehe")

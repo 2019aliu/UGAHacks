@@ -22,17 +22,24 @@ class User:
 		return self.level
 
 	def getHistoricalData(self):
-		historicD = {stock: {} for stock in self.stockList}
-		count = 0
-		while (count < len(historicD)):
-			self.stockObjects[count].setDate(datetime(2003, 1, 2))
-			historicD[self.stockObjects[count].getTicker()] = self.stockObjects[count].updatePriceWithNumDays(7)
-			count += 1
+		historicD = {stock: [] for stock in self.stocksBought}
+		for stockTicker in historicD:
+			tempStock = Stock(stockTicker)
+			historicD[stockTicker] = tempStock.getPastData()
+		
+		# count = 0
+		# while (count < len(historicD)):
+		# 	self.stockObjects[count].setDate(datetime(2003, 1, 2))
+		# 	historicD[self.stockObjects[count].getTicker()] = self.stockObjects[count].updatePriceWithNumDays(7)
+		# 	count += 1
 		return historicD
-
 
 	def getStockList(self):
 		return self.stocksBought
+
+	def buyStock(self, stockTicker):
+		stockOBJ = Stock(stockTicker)
+		buyStock(self, stockOBJ)
 
 	def buyStock(self, stock):
 		if (self.liquidAssets >= stock.getPrice()):
