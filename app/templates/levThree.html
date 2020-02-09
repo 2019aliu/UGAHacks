@@ -14,16 +14,16 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
     <style>
-		h1 {
-		    text-align: center;
-		    font-family: 'Arial Light';
-		    font-weight: lighter;
-		    padding-top: 11px;
-		    padding-bottom: 10px;
-		    font-size: 44px;
-		    margin-bottom: 10px;
-		    display: block;
-		}
+        h1 {
+            text-align: center;
+            font-family: 'Arial Light';
+            font-weight: lighter;
+            padding-top: 11px;
+            padding-bottom: 10px;
+            font-size: 44px;
+            margin-bottom: 10px;
+            display: block;
+        }
         h2 {
             text-align: center;
             font-family: 'Arial Light';
@@ -44,26 +44,26 @@
             margin-bottom: 1px;
             display: block;
         }
-		.center {
-			text-align: center;
-		}
-		.button1 {
-    		background-color: #F26E22;
-    		color: white;
-		    padding: 15px 28px;
-		    text-align: center;
-		    text-decoration: none;
-		    display: inline-block;
-		    font-size: 20px;
-		    margin: 25px auto 35px;
-		    font-family: 'Arial Light';
-		    vertical-align: middle;
-		    border-radius: 1px;
+        .center {
+            text-align: center;
+        }
+        .button1 {
+            background-color: #F26E22;
+            color: white;
+            padding: 15px 28px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 20px;
+            margin: 25px auto 35px;
+            font-family: 'Arial Light';
+            vertical-align: middle;
+            border-radius: 1px;
         }
         .i-am-centered { margin: auto; max-width: 800px;}
     }
 
-	</style>
+    </style>
 </head>
 
 <body> <br>
@@ -75,7 +75,7 @@
 </div>
 <div class="row">
   <div class="col-sm-1"></div>
-  <div class="col-sm-3"><a href={{ url_for('home')}} class="button1">< BACK</a></div>
+  <div class="col-sm-3"><a href={{ url_for('index')}} class="button1">< BACK</a></div>
   <div class="col-sm-1"></div>
   <div class="col-sm-2" style ="text-align:center;"><p style="text-align: center;
             font-family: 'Arial Light';
@@ -84,7 +84,7 @@
             padding-bottom: 30px;
             font-size: 30px;
             margin-bottom: 20px;
-            display: block;">Level Three</p></div>
+            display: block;">Level Two</p></div>
 </div>
 
 <div class = "i-am-centered">
@@ -95,10 +95,10 @@
             <div class="card-body">
                 <div class="media">
                     <div class="media-left">
-                        <img src="static/foxstocksnumber3lessborder-01.png" class="media-object" style="width:60px">
+                        <img src="static/foxstocksnumber2lessborder-01.png" class="media-object" style="width:60px">
                     </div>
                         <div class="media-body">
-                            <p style ="text-align:left;font-size:15px;padding-left:10px">Learn to buy, sell, and sell short from 7 stock options with a starting value of $100,000 for a 7% increase</p>
+                            <p style ="text-align:left;font-size:15px;padding-left:10px">Learn to buy, sell, and sell short from 7 stock options with a starting value of $100,000 for a 10% increase</p>
                         </div>
                 </div>
             </div>
@@ -111,7 +111,7 @@
                 <p>Start:      January 2008</p>
                 <p>End:        December 2008</p><br><br><br><br><br><br><br><br><br><br>
                 <p>Current Date:</p>
-                <p>PLACEHOLDER</p>
+                <p>{{histData['AAPL'][0][0]}}</p>
             </div>
         </div>
     </div>
@@ -137,38 +137,38 @@
           <table class="table table-bordered" style="max-height: 50px">
             <thead>
               <tr>
-                <th>Day</th>
-                <th>Price</th>
+                <th>Date</th>
+                <th>Stock Data</th>
               </tr>
             </thead>
             <tbody>
               <tr>
-                <td>oneDay</td>
-                <td>onePrice</td>
+                <td>{{histData['AAPL'][0][0]}}</td>
+                <td>{{histData['AAPL'][0][1]}}</td>
               </tr>
               <tr>
-                <td>ThreeDay</td>
-                <td>onePrice</td>
+                <td>{{histData['AAPL'][1][0]}}</td>
+                <td>{{histData['AAPL'][1][1]}}</td>
               </tr>
               <tr>
-                <td>threeDay</td>
-                <td>onePrice</td>
+                <td>{{histData['AAPL'][2][0]}}</td>
+                <td>{{histData['AAPL'][2][1]}}</td>
               </tr>
               <tr>
-                <td>fourDay</td>
-                <td>onePrice</td>
+                <td>{{histData['AAPL'][3][0]}}</td>
+                <td>{{histData['AAPL'][3][1]}}</td>
               </tr>
               <tr>
-                <td>fiveDay</td>
-                <td>onePrice</td>
+                <td>{{histData['AAPL'][4][0]}}</td>
+                <td>{{histData['AAPL'][4][1]}}</td>
               </tr>
               <tr>
-                <td>sixDay</td>
-                <td>onePrice</td>
+                <td>{{histData['AAPL'][5][0]}}</td>
+                <td>{{histData['AAPL'][5][1]}}</td>
               </tr>
               <tr>
-                <td>sevenDay</td>
-                <td>onePrice</td>
+                <td>{{histData['AAPL'][6][0]}}</td>
+                <td>{{histData['AAPL'][6][1]}}</td>
               </tr>
             </tbody>
           </table>
@@ -188,38 +188,38 @@
       <table class="table table-bordered" style="max-height: 50px">
             <thead>
               <tr>
-                <th>Day</th>
-                <th>Price</th>
+                <th>Date</th>
+                <th>Stock Data</th>
               </tr>
             </thead>
             <tbody>
               <tr>
-                <td>oneDay</td>
-                <td>onePrice</td>
+                <td>{{histData['BLK'][0][0]}}</td>
+                <td>{{histData['BLK'][0][1]}}</td>
               </tr>
               <tr>
-                <td>ThreeDay</td>
-                <td>onePrice</td>
+                <td>{{histData['BLK'][1][0]}}</td>
+                <td>{{histData['BLK'][1][1]}}</td>
               </tr>
               <tr>
-                <td>threeDay</td>
-                <td>onePrice</td>
+                <td>{{histData['BLK'][2][0]}}</td>
+                <td>{{histData['BLK'][2][1]}}</td>
               </tr>
               <tr>
-                <td>fourDay</td>
-                <td>onePrice</td>
+                <td>{{histData['BLK'][3][0]}}</td>
+                <td>{{histData['BLK'][3][1]}}</td>
               </tr>
               <tr>
-                <td>fiveDay</td>
-                <td>onePrice</td>
+                <td>{{histData['BLK'][4][0]}}</td>
+                <td>{{histData['BLK'][4][1]}}</td>
               </tr>
               <tr>
-                <td>sixDay</td>
-                <td>onePrice</td>
+                <td>{{histData['BLK'][5][0]}}</td>
+                <td>{{histData['BLK'][5][1]}}</td>
               </tr>
               <tr>
-                <td>sevenDay</td>
-                <td>onePrice</td>
+                <td>{{histData['BLK'][6][0]}}</td>
+                <td>{{histData['BLK'][6][1]}}</td>
               </tr>
             </tbody>
           </table></div>
@@ -238,38 +238,38 @@
       <table class="table table-bordered" style="max-height: 50px">
             <thead>
               <tr>
-                <th>Day</th>
-                <th>Price</th>
+                <th>Date</th>
+                <th>Stock Data</th>
               </tr>
             </thead>
             <tbody>
               <tr>
-                <td>oneDay</td>
-                <td>onePrice</td>
+                <td>{{histData['JPM'][0][0]}}</td>
+                <td>{{histData['JPM'][0][1]}}</td>
               </tr>
               <tr>
-                <td>ThreeDay</td>
-                <td>onePrice</td>
+                <td>{{histData['JPM'][1][0]}}</td>
+                <td>{{histData['JPM'][1][1]}}</td>
               </tr>
               <tr>
-                <td>threeDay</td>
-                <td>onePrice</td>
+                <td>{{histData['JPM'][2][0]}}</td>
+                <td>{{histData['JPM'][2][1]}}</td>
               </tr>
               <tr>
-                <td>fourDay</td>
-                <td>onePrice</td>
+                <td>{{histData['JPM'][3][0]}}</td>
+                <td>{{histData['JPM'][3][1]}}</td>
               </tr>
               <tr>
-                <td>fiveDay</td>
-                <td>onePrice</td>
+                <td>{{histData['JPM'][4][0]}}</td>
+                <td>{{histData['JPM'][4][1]}}</td>
               </tr>
               <tr>
-                <td>sixDay</td>
-                <td>onePrice</td>
+                <td>{{histData['JPM'][5][0]}}</td>
+                <td>{{histData['JPM'][5][1]}}</td>
               </tr>
               <tr>
-                <td>sevenDay</td>
-                <td>onePrice</td>
+                <td>{{histData['JPM'][6][0]}}</td>
+                <td>{{histData['JPM'][6][1]}}</td>
               </tr>
             </tbody>
           </table></div>
@@ -288,38 +288,38 @@
       <table class="table table-bordered" style="max-height: 50px">
             <thead>
               <tr>
-                <th>Day</th>
-                <th>Price</th>
+                <th>Date</th>
+                <th>Stock Data</th>
               </tr>
             </thead>
             <tbody>
               <tr>
-                <td>oneDay</td>
-                <td>onePrice</td>
+                <td>{{histData['MSFT'][0][0]}}</td>
+                <td>{{histData['MSFT'][0][1]}}</td>
               </tr>
               <tr>
-                <td>ThreeDay</td>
-                <td>onePrice</td>
+                <td>{{histData['MSFT'][1][0]}}</td>
+                <td>{{histData['MSFT'][1][1]}}</td>
               </tr>
               <tr>
-                <td>threeDay</td>
-                <td>onePrice</td>
+                <td>{{histData['MSFT'][2][0]}}</td>
+                <td>{{histData['MSFT'][2][1]}}</td>
               </tr>
               <tr>
-                <td>fourDay</td>
-                <td>onePrice</td>
+                <td>{{histData['MSFT'][3][0]}}</td>
+                <td>{{histData['MSFT'][3][1]}}</td>
               </tr>
               <tr>
-                <td>fiveDay</td>
-                <td>onePrice</td>
+                <td>{{histData['MSFT'][4][0]}}</td>
+                <td>{{histData['MSFT'][4][1]}}</td>
               </tr>
               <tr>
-                <td>sixDay</td>
-                <td>onePrice</td>
+                <td>{{histData['MSFT'][5][0]}}</td>
+                <td>{{histData['MSFT'][5][1]}}</td>
               </tr>
               <tr>
-                <td>sevenDay</td>
-                <td>onePrice</td>
+                <td>{{histData['MSFT'][6][0]}}</td>
+                <td>{{histData['MSFT'][6][1]}}</td>
               </tr>
             </tbody>
           </table></div>
@@ -328,48 +328,48 @@
   <div class="card">
     <div class="card-heading">
       <h4 class="card-title">
-        <a class="card-link" data-toggle="collapse" href="#collapse5" style="font-size:15px;margin-left:15px;color:gray">
+        <a class="card-link" data-toggle="collapse" href="#collapse4" style="font-size:15px;margin-left:15px;color:gray">
         NEW YORK TIMES CO.</a>
       </h4>
     </div>
-    <div id="collapse5" class="card-collapse collapse in">
+    <div id="collapse4" class="card-collapse collapse in">
         <div class="card-header" style="font-family: Arial Light;font-size: 11px"><strong>NYSE: NYT</strong></div>
       <div class="card-body" style="font-size:12px">
       <table class="table table-bordered" style="max-height: 50px">
             <thead>
               <tr>
-                <th>Day</th>
-                <th>Price</th>
+                <th>Date</th>
+                <th>Stock Data</th>
               </tr>
             </thead>
             <tbody>
               <tr>
-                <td>oneDay</td>
-                <td>onePrice</td>
+                <td>{{histData['NYT'][0][0]}}</td>
+                <td>{{histData['NYT'][0][1]}}</td>
               </tr>
               <tr>
-                <td>ThreeDay</td>
-                <td>onePrice</td>
+                <td>{{histData['NYT'][1][0]}}</td>
+                <td>{{histData['NYT'][1][1]}}</td>
               </tr>
               <tr>
-                <td>threeDay</td>
-                <td>onePrice</td>
+                <td>{{histData['NYT'][2][0]}}</td>
+                <td>{{histData['NYT'][2][1]}}</td>
               </tr>
               <tr>
-                <td>fourDay</td>
-                <td>onePrice</td>
+                <td>{{histData['NYT'][3][0]}}</td>
+                <td>{{histData['NYT'][3][1]}}</td>
               </tr>
               <tr>
-                <td>fiveDay</td>
-                <td>onePrice</td>
+                <td>{{histData['NYT'][4][0]}}</td>
+                <td>{{histData['NYT'][4][1]}}</td>
               </tr>
               <tr>
-                <td>sixDay</td>
-                <td>onePrice</td>
+                <td>{{histData['NYT'][5][0]}}</td>
+                <td>{{histData['NYT'][5][1]}}</td>
               </tr>
               <tr>
-                <td>sevenDay</td>
-                <td>onePrice</td>
+                <td>{{histData['NYT'][6][0]}}</td>
+                <td>{{histData['NYT'][6][1]}}</td>
               </tr>
             </tbody>
           </table></div>
@@ -378,48 +378,48 @@
   <div class="card">
     <div class="card-heading">
       <h4 class="card-title">
-        <a class="card-link" data-toggle="collapse" href="#collapse6" style="font-size:15px;margin-left:15px;color:gray">
+        <a class="card-link" data-toggle="collapse" href="#collapse4" style="font-size:15px;margin-left:15px;color:gray">
         WALT DISNEY COMPANY</a>
       </h4>
     </div>
-    <div id="collapse6" class="card-collapse collapse in">
+    <div id="collapse4" class="card-collapse collapse in">
         <div class="card-header" style="font-family: Arial Light;font-size: 11px"><strong>NYSE: DIS</strong></div>
       <div class="card-body" style="font-size:12px">
       <table class="table table-bordered" style="max-height: 50px">
             <thead>
               <tr>
-                <th>Day</th>
-                <th>Price</th>
+                <th>Date</th>
+                <th>Stock Data</th>
               </tr>
             </thead>
             <tbody>
               <tr>
-                <td>oneDay</td>
-                <td>onePrice</td>
+                <td>{{histData['DIS'][0][0]}}</td>
+                <td>{{histData['DIS'][0][1]}}</td>
               </tr>
               <tr>
-                <td>ThreeDay</td>
-                <td>onePrice</td>
+                <td>{{histData['DIS'][1][0]}}</td>
+                <td>{{histData['DIS'][1][1]}}</td>
               </tr>
               <tr>
-                <td>threeDay</td>
-                <td>onePrice</td>
+                <td>{{histData['DIS'][2][0]}}</td>
+                <td>{{histData['DIS'][2][1]}}</td>
               </tr>
               <tr>
-                <td>fourDay</td>
-                <td>onePrice</td>
+                <td>{{histData['DIS'][3][0]}}</td>
+                <td>{{histData['DIS'][3][1]}}</td>
               </tr>
               <tr>
-                <td>fiveDay</td>
-                <td>onePrice</td>
+                <td>{{histData['DIS'][4][0]}}</td>
+                <td>{{histData['DIS'][4][1]}}</td>
               </tr>
               <tr>
-                <td>sixDay</td>
-                <td>onePrice</td>
+                <td>{{histData['DIS'][5][0]}}</td>
+                <td>{{histData['DIS'][5][1]}}</td>
               </tr>
               <tr>
-                <td>sevenDay</td>
-                <td>onePrice</td>
+                <td>{{histData['DIS'][6][0]}}</td>
+                <td>{{histData['DIS'][6][1]}}</td>
               </tr>
             </tbody>
           </table></div>
@@ -428,48 +428,48 @@
   <div class="card">
     <div class="card-heading">
       <h4 class="card-title">
-        <a class="card-link" data-toggle="collapse" href="#collapse7" style="font-size:15px;margin-left:15px;color:gray">
+        <a class="card-link" data-toggle="collapse" href="#collapse4" style="font-size:15px;margin-left:15px;color:gray">
         GENERAL ELECTRIC CO.</a>
       </h4>
     </div>
-    <div id="collapse7" class="card-collapse collapse in">
+    <div id="collapse4" class="card-collapse collapse in">
         <div class="card-header" style="font-family: Arial Light;font-size: 11px"><strong>NYSE: GE</strong></div>
       <div class="card-body" style="font-size:12px">
       <table class="table table-bordered" style="max-height: 50px">
             <thead>
               <tr>
-                <th>Day</th>
-                <th>Price</th>
+                <th>Date</th>
+                <th>Stock Data</th>
               </tr>
             </thead>
             <tbody>
               <tr>
-                <td>oneDay</td>
-                <td>onePrice</td>
+                <td>{{histData['GE'][0][0]}}</td>
+                <td>{{histData['GE'][0][1]}}</td>
               </tr>
               <tr>
-                <td>ThreeDay</td>
-                <td>onePrice</td>
+                <td>{{histData['GE'][1][0]}}</td>
+                <td>{{histData['GE'][1][1]}}</td>
               </tr>
               <tr>
-                <td>threeDay</td>
-                <td>onePrice</td>
+                <td>{{histData['GE'][2][0]}}</td>
+                <td>{{histData['GE'][2][1]}}</td>
               </tr>
               <tr>
-                <td>fourDay</td>
-                <td>onePrice</td>
+                <td>{{histData['GE'][3][0]}}</td>
+                <td>{{histData['GE'][3][1]}}</td>
               </tr>
               <tr>
-                <td>fiveDay</td>
-                <td>onePrice</td>
+                <td>{{histData['GE'][4][0]}}</td>
+                <td>{{histData['GE'][4][1]}}</td>
               </tr>
               <tr>
-                <td>sixDay</td>
-                <td>onePrice</td>
+                <td>{{histData['GE'][5][0]}}</td>
+                <td>{{histData['GE'][5][1]}}</td>
               </tr>
               <tr>
-                <td>sevenDay</td>
-                <td>onePrice</td>
+                <td>{{histData['GE'][6][0]}}</td>
+                <td>{{histData['GE'][6][1]}}</td>
               </tr>
             </tbody>
           </table></div>
@@ -482,49 +482,50 @@
 
     <div class = "col-sm-6">
         <div class = "card" style="width:450px;text-align:left;"><br>
-            <h2>Order Stock</h2>
-                <div class="row" style="margin-left:50px">
-                    <div class="col-sm-6">
-                        <label for="class_type" style="align-content:left"><h5>Stock Symbol</h5></label>
-                    </div>
-                    <div class="col-sm-2">
-                        <input type="text" class="form-control" id="stock" style="width:150px;height:30px;align-content: right">
-                    </div>
-                </div>
-                <div class="row" style="margin-left:50px;max-height:100px;padding-top:10px;padding-bottom:11px">
-                    <div class="col-sm-2">
-                        <label for="class_type"><h5>Transaction</h5></label>
-                    </div>
-                    <div class="col-sm-4"></div>
-                    <div class="col-sm-2">
-                        <select name="class_type" id="class_type" class="form-control input-med" style="width:150px;height:30px;font-size:12px" autocomplete="off">
-                            <option >Buy</option>
-                            <option >Sell</option>
-                            <option >Buy to Cover</option>
-                            <option >Sell Short</option>
-                        </select>
-                    </div>
-                </div>
-                <div class="row" style="margin-left:50px">
-                    <div class="col-sm-2">
-                        <label for="class_type"><h5>Quantity</h5></label>
-                    </div>
-                    <div class="col-sm-4"></div>
-                    <div class="col-sm-2">
-                        <input type="input" class="form-control" id="quantity" style="width:150px;height:30px">
-                    </div>
-                </div>
-                <br>
-                <div class="row" style="margin-left:50px">
-                    <div class="col-sm-4">
-                        <label for="class_type"><h5>Est. Total</h5></label>
-                    </div>
-                    <div class="col-sm-2"></div>
-                    <div class="col-sm-5">
-                        <h6>PLACEHOLDER</h6>
-                    </div>
-                </div>
-                <button type="button" class="button1">Submit</button>
+            <h2>Order Stocks</h2>
+            <form action="http://127.0.0.1:5000/level3/result/{{numDays}}" method = "POST" style="max-width: 400px;text-align: center;padding-left: 55px">
+              <!-- <div class="form-group">
+                <label for="email">Email address:</label>
+                <input type="email" name="email" class="form-control" {{portfolio['AAPL
+      ']}}="Enter email" id="email">
+              </div>
+              <div class="form-group">
+                <label for="pwd">Password:</label>
+                <input type="password" name="pwd" class="form-control" {{portfolio['AAPL
+      ']}}="Enter password" id="pwd">
+              </div> -->
+              <div class="form-group">
+                <label for="stock">Select Stock:</label>
+                <select name="stockName" class="form-control" id="stock1">
+                  <option>AAPL</option>
+                  <option>BLK</option>
+                  <option>JPM</option>
+                  <option>MSFT</option>
+                  <option>NYT</option>
+                  <option>DIS</option>
+                  <option>GE</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="numBuy">Quantity of Normal Stocks:</label>
+                <input type="number" name="numBuy" class="form-control" placeholder="Enter number of stocks to buy" id="numBuy">
+              </div>
+              <div class="form-group">
+                <label for="numShort">Quantity of Shorted Stocks:</label>
+                <input type="number" name="numShort" class="form-control" placeholder="Enter number of stocks to short" id="numShort">
+              </div>
+              <div class="form-group">
+                <label for="sel1">Select Action:</label>
+                <select name="buySell" class="form-control" id="sel1">
+                  <option>Buy</option>
+                  <option>Sell</option>
+                  <option>Buy to Cover (Short)</option>
+                  <option>Sell Short</option>
+                </select>
+              </div>
+              <input type="submit" name="submit_button" value="Submit" style="background-color:#F26E22"></input>
+            </form>
+            <br><br>
     </div>
 
     <br>
@@ -534,14 +535,14 @@
             <h3>Portfolio</h3>
         </div>
         <div class="col-sm-7">
-            <h5>Current Account Value: $PLACEHOLDER</h5>
+            <h5>Current Account Value: ${{assets}}</h5>
         </div>
     </div>
 
     <br>
 
     <div class="progress" style="height:40px;width:550px;">
-        <div class="progress-bar" style="width:50%;height:40px;font-size:17px;background-color:brown">Your Used Funds: PLACEHOLDER</div>
+        <div class="progress-bar" style="(width:{{100000-assets}}/100000)*100%;height:40px;font-size:17px;background-color:brown">Your Used Funds: {{100000-assets}}</div>
     </div>
 
     <br>
@@ -551,99 +552,84 @@
       <tr>
         <th>Stock</th>
         <th>Quantity</th>
-        <th>Actions</th>
-        <th>Price</th>
+        <th>Value</th>
       </tr>
     </thead>
     <tbody>
       <tr>
         <td>AAPL - Apple Inc.</td>
-        <td>PLACEHOLDER</td>
-        <td>Buy Sell Cover SellShort</td>
-        <td>PLACEHOLDER</td>
+        <td>{{portfolio['AAPL']}}</td>
+        <td>{{histData['AAPL'][0][1]*portfolio['AAPL']}}</td>
       </tr>
       <tr>
         <td>BLK - BlackRock</td>
-        <td>PLACEHOLDER</td>
-        <td>Buy Sell Cover SellShort</td>
-        <td>PLACEHOLDER</td>
+        <td>{{portfolio['BLK']}}</td>
+        <td>{{histData['BLK'][0][1]*portfolio['BLK']}}</td>
       </tr>
       <tr>
         <td>JPM - JPMorgan Chase</td>
-        <td>PLACEHOLDER</td>
-        <td>Buy Sell Cover SellShort</td>
-        <td>PLACEHOLDER</td>
+        <td>{{portfolio['JPM']}}</td>
+        <td>{{histData['JPM'][0][1]*portfolio['JPM']}}</td>
       </tr>
       <tr>
         <td>MSFT - Microsoft Inc.</td>
-        <td>PLACEHOLDER</td>
-        <td>Buy Sell Cover SellShort</td>
-        <td>PLACEHOLDER</td>
+        <td>{{portfolio['MSFT']}}</td>
+        <td>{{histData['MSFT'][0][1]*portfolio['MSFT']}}</td>
       </tr>
       <tr>
-        <td>NYT - New York Times</td>
-        <td>PLACEHOLDER</td>
-        <td>Buy Sell Cover SellShort</td>
-        <td>PLACEHOLDER</td>
+        <td>NYT - New York Times Co.</td>
+        <td>{{portfolio['NYT']}}</td>
+        <td>{{histData['NYT'][0][1]*portfolio['NYT']}}</td>
       </tr>
       <tr>
         <td>DIS - Walt Disney Company</td>
-        <td>PLACEHOLDER</td>
-        <td>Buy Sell Cover SellShort</td>
-        <td>PLACEHOLDER</td>
+        <td>{{portfolio['DIS']}}</td>
+        <td>{{histData['DIS'][0][1]*portfolio['DIS']}}</td>
       </tr>
       <tr>
-        <td>GE - General Electric Company</td>
-        <td>PLACEHOLDER</td>
-        <td>Buy Sell Cover SellShort</td>
-        <td>PLACEHOLDER</td>
+        <td>GE - General Electric Co.</td>
+        <td>{{portfolio['GE']}}</td>
+        <td>{{histData['GE'][0][1]*portfolio['GE']}}</td>
       </tr>
     </tbody>
   </table>
   <div class ="row">
     <div class="col-sm-2"></div>
     <div class="col-sm-4">
-          <div class="dropdown center" style="text-align: center;">
-          <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" style="background-color: #F26E22;
-            color: white;
-            padding: 15px 28px;
-            text-align: center;
-            text-decoration: none;
-            display: inline-block;
-            font-size: 20px;
-            font-family: 'Arial Light';
-            vertical-align: middle;
-            border-radius: 1px;">
-            Select Run Time
-          </button>
-          <div class="dropdown-menu">
-            <a class="dropdown-item" href="#">One Week</a>
-            <a class="dropdown-item" href="#">Two Weeks</a>
-            <a class="dropdown-item" href="#">One Month</a>
+        <form action="http://127.0.0.1:5000/level2/result/{{numDays}}" method = "POST" style="max-width: 200px;text-align: center;padding-left: 40px">
+          <div class="form-group">
+            <label for="sel1">Skip Forward Length:</label>
+            <select class="form-control" id="sel1">
+              <option>One Week</option>
+              <option>Two Weeks</option>
+              <option>One Month</option>
+            </select>
           </div>
-        </div>
-    </div>
+          <input type="submit" name="submit_button" value="Skip Forward" style="background-color:#F26E22"></input>
+        </form>
+</div>
 </div>
 
 <br><br><br><br><br><br><br>
 
 </div>
+<!-- Modal -->
 
 <div id="pass" class="modal">
     <div class="modal-content" style="max-height:600px;max-width:600px">
       <div class="modal-header">
-        <p style="font-size:25px;margin-left:15px;color:gray;text-align:center">Level 2 Result: Passed!</p><br>
+        <p style="font-size:25px;margin-left:15px;color:gray;text-align:center">Level 1 Result: Passed!</p><br>
       </div>
       <div class="modal-body" style="text-align:left;max-height:150px">
-            <br><h6><strong>2008: Housing Bubble Burst</strong></h6>
+            <br><h6><strong>Mid 2000s: Rise of the Housing Bubble</strong></h6>
             <p>
-                But many speculative investors stopped buying because the risk was getting too high, leading other buyers to get out of the market. This, in turn, caused prices to drop. Mortgage-backed securities were sold off in massive quantities, while mortgage defaults and foreclosures rose to unprecedented levels.
+                In the mid-2000s, the U.S. economy experienced a housing bubble that had a direct relationship to the Great Recession. Following the dotcom bubble, values in real estate began to creep up, fueling a rise in homeownership among speculative buyers, investors, and other consumers. This drove home prices up even more.
                 <br><br><br><a href="https://www.investopedia.com/articles/07/housing_bubble.asp" style="color:#F26E22">Read More</a>
             </p>
       </div>
       <div class="modal-footer">
         <div class="right"><br>
-            <a href={{ url_for('fin')}} class="btn btn-primary" style="background-color:#F26E22">Continue</a>
+            <a href={{ url_for('endPage')}} class="btn btn-primary" style="background-color:#F26E22">Continue</a>
         </div>
       </div>
   </div>
@@ -652,51 +638,51 @@
 <div id="fail" class="modal">
     <div class="modal-content" style="max-height:600px;max-width:600px">
       <div class="modal-header">
-        <p style="font-size:25px;margin-left:15px;color:gray;text-align:center">Level 2 Result: Failed</p><br>
+        <p style="font-size:25px;margin-left:15px;color:gray;text-align:center">Level 1 Result: Failed</p><br>
       </div>
       <div class="modal-body" style="text-align:left;max-height:150px">
-            <br><h6><strong>Hint: Financial State Of 2008</strong></h6>
+            <br><h6><strong>Hint: Current Events</strong></h6>
             <p>
-            What impacted the stock markets in 2007-2008? What past events built up to impact the financial state?
+            In the mid-2000s, how did the housing market affect the stock market?
             <br><br><br><a href="https://www.investopedia.com/articles/07/housing_bubble.asp" style="color:#F26E22">Read More</a>
             </p>
       </div>
       <div class="modal-footer">
         <div class="right"><br>
-            <a href={{ url_for('home')}} class="btn btn-secondary">Exit</a>
-            <a href={{ url_for('levThree')}} class="btn btn-primary" style="background-color:#F26E22">Try Again</a>
+            <a href={{ url_for('index')}} class="btn btn-secondary">Exit</a>
+            <a href={{ url_for('level3')}} class="btn btn-primary" style="background-color:#F26E22">Try Again</a>
         </div>
       </div>
   </div>
 </div>
 
-		<script>
-			var e = document.getElementById("flip-1");
-			var modal;
-			var span;
-			if (true) {
-				modal = document.getElementById("pass");
+        <script>
+            var e = document.getElementById("flip-1");
+            var modal;
+            var span;
+            if (true) {
+                modal = document.getElementById("pass");
 
-				span = document.getElementsByClassName("close")[0];
+                span = document.getElementsByClassName("close")[0];
 
-			} else {
-				modal = document.getElementById("fail");
+            } else {
+                modal = document.getElementById("fail");
 
-				span = document.getElementsByClassName("close")[1];
+                span = document.getElementsByClassName("close")[1];
 
-			}
-			var btn = document.getElementById("myBtn");
+            }
+            var btn = document.getElementById("myBtn");
 
-			btn.onclick = function () {
-				modal.style.display = "block";
-			}
+            btn.onclick = function () {
+                modal.style.display = "block";
+            }
 
-			span.onclick = function () {
-				modal.style.display = "none";
-			}
-		</script>
+            span.onclick = function () {
+                modal.style.display = "none";
+            }
+        </script>
 
-	</div>
+    </div>
 </body>
 
 </html>

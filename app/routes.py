@@ -7,6 +7,7 @@ app = Flask(__name__)
 
 myUser = initializeLevelOne()
 myUserTwo = initializeLevelTwo()
+myUserThree = initializeLevelThree()
 
 @app.route('/')
 def index():
@@ -67,9 +68,27 @@ def results2(days = 0):
         return render_template('index.html')
     return render_template('index.html')
 
-@app.route('/level3')
+@app.route('/level3', methods=['GET','POST'])
 def level3():
-    return render_template('levThree.html')
+    return render_template('levThree.html', histData = myUserThree.getHistoricalData(), assets = myUserThree.getTotalAssets(), portfolio = myUserThree.getStocksBought(), currentDate = myUserThree.getCurrentDate())
+
+@app.route('/level3/result/<days>', methods=['GET','POST'])
+def results3(days = 0):
+    if (request.method == 'POST'):
+        if request.form['submit_button'] == 'Do Something':
+            return("owo")
+        elif request.form['submit_button'] == 'Do Something Else':
+            print(request.form['numBuy'])
+            print(request.form['numShort'])
+            for i in range(int(request.form['numBuy'])):
+                myUserThree.buyStock(Stock('AAPL'))
+            print(myUserThree.getStockList())
+            print(request.form['buySell'])
+            return("uwu")
+        else:
+            return("hehe")
+        return render_template('index.html')
+    return render_template('index.html')
 
 @app.route('/end')
 def endPage():
