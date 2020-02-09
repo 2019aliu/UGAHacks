@@ -11,4 +11,4 @@ class Level:
     	self.numDays = newNaps
 
     def getThreshold():
-    	return threshold
+    	return self.threshold
