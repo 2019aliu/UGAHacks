@@ -333,7 +333,7 @@
     <div class = "col-sm-6">
         <div class = "card" style="width:450px;text-align:left;"><br>
             <h2>Order Stock</h2>
-            <form action="/action_page.php">
+            <form action="">
               <div class="form-group">
                 <label for="email">Email address:</label>
                 <input type="email" class="form-control" placeholder="Enter email" id="email">
@@ -347,7 +347,7 @@
                   <input class="form-check-input" type="checkbox"> Remember me
                 </label>
               </div>
-              <button type="submit" class="btn btn-primary">Submit</button>
+              <button type="submit" class="btn btn-primary" value="Do Something">Submit</button>
             </form>
     </div>
 
@@ -428,7 +428,16 @@
             <a class="dropdown-item" href="#">One Month</a>
           </div>
         </div>
-    </div>
+        <form action="">
+          <div class="form-group">
+            <label for="sel1">Select list:</label>
+            <select class="form-control" id="sel1">
+              <option>Buy</option>
+              <option>Sell</option>
+            </select>
+          </div>
+          <button type="submit" class="btn btn-primary" value="Do Something Else">Submit</button>
+        </form>
 </div>
 
 <br><br><br><br><br><br><br>
