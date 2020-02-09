@@ -44,6 +44,9 @@ class User:
 		return historicD
 
 	def getStockList(self):
+		return self.stockList
+
+	def getStocksBought(self):
 		return self.stocksBought
 
 	def buyStock(self, stockTicker):
@@ -54,7 +57,7 @@ class User:
 		if (self.liquidAssets >= stock.getPrice()):
 			self.stocksBought[stock.ticker] += 1
 			self.liquidAssets = self.liquidAssets - stock.getPrice()
-			self.short += 1
+			# self.short += 1
 
 	def buyShort(self, stock):
 		self.stocksShorted[stock.ticker] += 1
@@ -73,7 +76,7 @@ class User:
 		if (self.stockShorted[stock.ticker] >= 1 and self.liquidAssets >= stock.getPrice()):
 			self.stocksShorted[stock.ticker] -= 1
 			self.liquidAssets = self.liquidAssets - self.stockShorted[stock.ticker].getPrice()
-			self.short -= 1
+			# self.short -= 1
 
 
 
@@ -88,18 +91,18 @@ class User:
 				print("")
 
 			try:
-				if self.short > 0:
-					self.totalAssets -= self.stocksShorted[listTick[count]] * 0.05 * self.updatedStockValues[listTick[count]] * (currentDate-previousDate)
+				if len(self.stocksShorted) > 0:
+					self.totalAssets -= self.stocksShorted[listTick[count]] * 0.05 * self.updatedStockValues[listTick[count]]
+					# self.totalAssets -= self.stocksShorted[listTick[count]] * 0.05 * self.updatedStockValues[listTick[count]] * (currentDate-previousDate)
 			except:
 				print("")
 			count += 1
-		self.previousDate = self.currentDate
+		# self.previousDate = self.currentDate
 		return self.totalAssets
 
 	def checkSuccessAndTime(self, level):
 		count = 0
 		getTotalAssets()
 		if (self.totalAssets > level.getThreshold()):
-			self.success = True
 			self.done = True
 		self.totalAssets = 0

@@ -18,4 +18,6 @@ import datetime
 
 
 testUser = User(['AAPL', 'BLK'], Level(101, "2003-03-01"))
-print(testUser.getHistoricalData())
+# print(testUser.getHistoricalData())
+testUser.buyStock('AAPL')
+print(testUser.getStocksBought())
