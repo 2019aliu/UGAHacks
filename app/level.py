@@ -8,8 +8,8 @@ class Level:
         return self.numDays
     
     def addNumDays(self, numDays):
-        if self.numDays + numDays > self.threshold:
-            raise ValueError('The time limit of %d has been exceeded when fast forwarding by %d days' % (self.threshold, numDays))
+        if self.numDays + numDays > 365:
+            raise ValueError('The time limit of 365 days has been exceeded when fast forwarding by %d days' % numDays)
         self.numDays += numDays
 
     def getThreshold(self):
