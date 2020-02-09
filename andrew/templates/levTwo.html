@@ -2,14 +2,21 @@
 <html>
 
 <head>
-	<meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-	<link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles/level.css') }}">
-	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-	<style>
+    <title>Stock Simulation</title>
+    <html lang="en">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles/level.css') }}">
+    <!--<link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles/main.css') }}">-->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <style>
 		h1 {
 		    text-align: center;
-		    font-family: 'Roboto';
+		    font-family: 'Arial Light';
 		    font-weight: lighter;
 		    padding-top: 11px;
 		    padding-bottom: 30px;
@@ -17,6 +24,16 @@
 		    margin-bottom: 20px;
 		    display: block;
 		}
+        h2 {
+            text-align: center;
+            font-family: 'Arial Light';
+            font-weight: lighter;
+            padding-top: 11px;
+            padding-bottom: 30px;
+            font-size: 39px;
+            margin-bottom: 20px;
+            display: block;
+        }
 		.center {
 			text-align: center;
 		}
@@ -29,67 +46,256 @@
 		    display: inline-block;
 		    font-size: 20px;
 		    margin: 25px auto 35px;
-		    font-family: 'Roboto';
+		    font-family: 'Arial Light';
 		    vertical-align: middle;
-		    border-radius: 5px;
+		    border-radius: 1px;
+        }
+        .i-am-centered { margin: auto; max-width: 800px;}
     }
 
 	</style>
 </head>
 
-<body>
-	<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
-	<a href={{ url_for('home')}} class="button1">< BACK</a>
-	<h1>Level Two</h1>
-	<div class="panel-group" id="accordion">
-  <div class="panel panel-default">
-    <div class="panel-heading">
-      <h4 class="panel-title">
-        <a data-toggle="collapse" data-parent="#accordion" href="#collapse1">
-        Collapsible Group 1</a>
+<body> <br><br><br>
+<div class="row">
+  <div class="col-sm-1"></div>
+  <div class="col-sm-3"><a href={{ url_for('home')}} class="button1">< BACK</a></div>
+  <div class="col-sm-1"></div>
+  <div class="col-sm-2" style ="text-align:center;"><h1>Level Two</h1></div>
+</div>
+
+<div class = "i-am-centered">
+    <div class="row">
+        <div class="col-sm-1"></div>
+        <div class="col-sm-5">
+        <div class="card" style="width:450px;margin-right:30px;height:100px">
+            <div class="card-body">
+                <div class="media">
+                    <div class="media-left">
+                        <img src="static/foxstocknumber2final-01.png" class="media-object" style="width:70px;height:70px">
+                    </div>
+                        <div class="media-body">
+                            <p style ="text-align:left;font-size:17px">Learn to buy and sell from 4 stock options with a starting value of $10,000 for a 5% increase</p>
+                        </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-2"></div>
+    <div class="col-sm-4">
+        <div class = "card" style="width:200px;margin-right:30px;height:100px">
+            <div class = "card-body" style="height:100px;line-height:1px;width:200px">
+                <p>Start:      PLACEHOLDER</p>
+                <p>End:        PLACEHOLDER</p><br><br><br><br><br><br><br><br><br><br>
+                <p>Current Date:</p>
+                <p>PLACEHOLDER</p>
+            </div>
+        </div>
+    </div>
+    </div>
+</div>
+
+<br><br><br>
+
+<div class="row">
+    <div class="col-sm-1"></div>
+    <div class="col-sm-4">
+<div id="accordion" style ="width:550px;">
+  <div class="card">
+    <div class="card-heading">
+      <h4 class="card-title">
+        <a class="card-link" data-toggle="collapse" href="#collapse1" style="font-size:20px">
+        Apple</a>
       </h4>
     </div>
-    <div id="collapse1" class="panel-collapse collapse in">
-      <div class="panel-body">Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+    <div id="collapse1" class="card-collapse collapse in">
+      <div class="card-body">Lorem ipsum dolor sit amet, consectetur adipisicing elit,
       sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
       minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
       commodo consequat.</div>
     </div>
   </div>
-  <div class="panel panel-default">
-    <div class="panel-heading">
-      <h4 class="panel-title">
-        <a data-toggle="collapse" data-parent="#accordion" href="#collapse2">
-        Collapsible Group 2</a>
+  <div class="card">
+    <div class="card-heading">
+      <h4 class="card-title">
+        <a class="card-link" data-toggle="collapse" href="#collapse2" style="font-size:20px">
+        BlackRock</a>
       </h4>
     </div>
-    <div id="collapse2" class="panel-collapse collapse">
-      <div class="panel-body">Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+    <div id="collapse2" class="card-collapse collapse in">
+      <div class="card-body">Lorem ipsum dolor sit amet, consectetur adipisicing elit,
       sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
       minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
       commodo consequat.</div>
     </div>
   </div>
-  <div class="panel panel-default">
-    <div class="panel-heading">
-      <h4 class="panel-title">
-        <a data-toggle="collapse" data-parent="#accordion" href="#collapse3">
-        Collapsible Group 3</a>
+  <div class="card">
+    <div class="card-heading">
+      <h4 class="card-title">
+        <a class="card-link" data-toggle="collapse" href="#collapse3" style="font-size:20px">
+        JPMorgan</a>
       </h4>
     </div>
-    <div id="collapse3" class="panel-collapse collapse">
-      <div class="panel-body">Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+    <div id="collapse3" class="card-collapse collapse in">
+      <div class="card-body">Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+      sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
+      minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+      commodo consequat.</div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-heading">
+      <h4 class="card-title">
+        <a class="card-link" data-toggle="collapse" href="#collapse4" style="font-size:20px">
+        Microsoft</a>
+      </h4>
+    </div>
+    <div id="collapse4" class="card-collapse collapse in">
+      <div class="card-body">Lorem ipsum dolor sit amet, consectetur adipisicing elit,
       sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
       minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
       commodo consequat.</div>
     </div>
   </div>
 </div>
-	<div class="center">
-		<button id="myBtn">Finish Level Two</button>
+</div>
 
+<div class = "col-sm-1"></div>
+
+    <div class = "col-sm-6">
+        <div class = "card" style="width:550px;text-align:left;"><br>
+            <h2>Order Stock</h2><br>
+                <div class="row" style="margin-left:50px">
+                    <div class="col-sm-6">
+                        <label for="class_type" style="align-content:left"><h5>Stock Symbol</h5></label>
+                    </div>
+                    <div class="col-sm-2">
+                        <input type="text" class="form-control" id="stock" style="width:150px;align-content: right">
+                    </div>
+                </div><br>
+                <div class="row" style="margin-left:50px;max-height:100px">
+                    <div class="col-sm-2">
+                        <label for="class_type"><h5>Transaction</h5></label>
+                    </div>
+                    <div class="col-sm-4"></div>
+                    <div class="col-sm-2">
+                        <select name="class_type" id="class_type" class="form-control input-med" style="width:150px;" autocomplete="off" prompt = "Choose Action">
+                            <option >Buy</option>
+                            <option >Sell</option>
+                            <option >Buy to Cover</option>
+                            <option >Sell Short</option>
+                        </select>
+                    </div>
+                </div><br>
+                <div class="row" style="margin-left:50px">
+                    <div class="col-sm-2">
+                        <label for="class_type"><h5>Quantity</h5></label>
+                    </div>
+                    <div class="col-sm-4"></div>
+                    <div class="col-sm-2">
+                        <input type="input" class="form-control" id="quantity" style="width:150px">
+                    </div>
+                </div><br>
+                <br>
+                <div class="row" style="margin-left:50px">
+                    <div class="col-sm-4">
+                        <label for="class_type"><h5>Est. Total</h5></label>
+                    </div>
+                    <div class="col-sm-2"></div>
+                    <div class="col-sm-6">
+                        <h4>PLACEHOLDER</h4>
+                    </div>
+                </div>
+                <br>
+                <button type="button" class="button1">Submit</button>
+    </div>
+
+    <br>
+
+    <div class = "row">
+        <div class="col-sm-2">
+            <h3>Portfolio</h3>
+        </div>
+        <div class="col-sm-1"></div>
+        <div class="col-sm-8">
+            <h5>Current Account Value: $PLACEHOLDER</h5>
+        </div>
+    </div>
+
+    <br>
+
+    <div class="progress" style="height:25px;width:550px">
+        <div class="progress-bar" style="width:50%;height:25px">Your Used Funds: PLACEHOLDER</div>
+    </div>
+
+    <br>
+
+    <table class="table table-hover" style="width:550px">
+    <thead>
+      <tr>
+        <th>Stock</th>
+        <th>Quantity</th>
+        <th>Actions</th>
+        <th>Price</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>AAPL - Apple Inc.</td>
+        <td>PLACEHOLDER</td>
+        <td>Buy Sell Cover SellShort</td>
+        <td>PLACEHOLDER</td>
+      </tr>
+      <tr>
+        <td>BLK - BlackRock</td>
+        <td>PLACEHOLDER</td>
+        <td>Buy Sell Cover SellShort</td>
+        <td>PLACEHOLDER</td>
+      </tr>
+      <tr>
+        <td>JPM - JPMorgan Chase</td>
+        <td>PLACEHOLDER</td>
+        <td>Buy Sell Cover SellShort</td>
+        <td>PLACEHOLDER</td>
+      </tr>
+      <tr>
+        <td>MSFT - Microsoft Inc.</td>
+        <td>PLACEHOLDER</td>
+        <td>Buy Sell Cover SellShort</td>
+        <td>PLACEHOLDER</td>
+      </tr>
+    </tbody>
+  </table>
+  <div class ="row">
+    <div class="col-sm-2"></div>
+    <div class="col-sm-4">
+          <div class="dropdown center" style="text-align: center;">
+          <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" style="background-color: #F26E22;
+            color: white;
+            padding: 15px 28px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 20px;
+            font-family: 'Arial Light';
+            vertical-align: middle;
+            border-radius: 1px;">
+            Select Run Time
+          </button>
+          <div class="dropdown-menu">
+            <a class="dropdown-item" href="#">One Week</a>
+            <a class="dropdown-item" href="#">Two Weeks</a>
+            <a class="dropdown-item" href="#">One Month</a>
+          </div>
+        </div>
+    </div>
+</div>
+
+<br><br><br><br><br><br><br>
+
+</div>
+
+	<div class="center">
 		<div id="pass" class="modal">
 			<div class="modal-content">
 				<div class="modal-header">
