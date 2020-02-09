@@ -618,7 +618,7 @@
           </button>
           <div class="dropdown-menu">
             <a class="dropdown-item" href="#">One Week</a>
-            <a class="dropdown-item" href="#">Three Weeks</a>
+            <a class="dropdown-item" href="#">Two Weeks</a>
             <a class="dropdown-item" href="#">One Month</a>
           </div>
         </div>
@@ -629,46 +629,46 @@
 
 </div>
 
-	<div class="center">
-		<div id="pass" class="modal">
-			<div class="modal-content">
-				<div class="modal-header">
-					<span class="close">&times;</span>
-					<h2> Result: Passed!</h2>
-				</div>
+<div id="pass" class="modal">
+    <div class="modal-content" style="max-height:600px;max-width:600px">
+      <div class="modal-header">
+        <p style="font-size:25px;margin-left:15px;color:gray;text-align:center">Level 2 Result: Passed!</p><br>
+      </div>
+      <div class="modal-body" style="text-align:left;max-height:150px">
+            <br><h6><strong>2008: Housing Bubble Burst</strong></h6>
+            <p>
+                But many speculative investors stopped buying because the risk was getting too high, leading other buyers to get out of the market. This, in turn, caused prices to drop. Mortgage-backed securities were sold off in massive quantities, while mortgage defaults and foreclosures rose to unprecedented levels.
+                <br><br><br><a href="https://www.investopedia.com/articles/07/housing_bubble.asp" style="color:#F26E22">Read More</a>
+            </p>
+      </div>
+      <div class="modal-footer">
+        <div class="right"><br>
+            <a href={{ url_for('theend')}} class="btn btn-primary" style="background-color:#F26E22">Continue</a>
+        </div>
+      </div>
+  </div>
+</div>
 
-				<div class="modal-body">
-					<p>You did the thing!</p>
-				</div>
-
-				<div class="modal-footer">
-					<div class="right">
-						<a href={{ url_for('home')}} class="button2">Exit</a>
-						<a href={{ url_for('levThree')}} class="button3">Continue</a>
-					</div>
-				</div>
-			</div>
-		</div>
-
-		<div id="fail" class="modal">
-			<div class="modal-content">
-				<div class="modal-header">
-					<span class="close">&times;</span>
-					<h2> Result: Not Quite!</h2>
-				</div>
-
-				<div class="modal-body">
-					<p>You didn't do the thing!</p>
-				</div>
-
-				<div class="modal-footer">
-					<div class="right">
-						<a href={{ url_for('home')}} class="button2">Exit</a>
-						<a href={{ url_for('levThree')}} class="button3">Try Again</a>
-					</div>
-				</div>
-			</div>
-		</div>
+<div id="fail" class="modal">
+    <div class="modal-content" style="max-height:600px;max-width:600px">
+      <div class="modal-header">
+        <p style="font-size:25px;margin-left:15px;color:gray;text-align:center">Level 2 Result: Failed</p><br>
+      </div>
+      <div class="modal-body" style="text-align:left;max-height:150px">
+            <br><h6><strong>Hint: Financial State Of 2008</strong></h6>
+            <p>
+            What impacted the stock markets in 2007-2008? What past events built up to impact the financial state?
+            <br><br><br><a href="https://www.investopedia.com/articles/07/housing_bubble.asp" style="color:#F26E22">Read More</a>
+            </p>
+      </div>
+      <div class="modal-footer">
+        <div class="right"><br>
+            <a href={{ url_for('home')}} class="btn btn-secondary">Exit</a>
+            <a href={{ url_for('levThree')}} class="btn btn-primary" style="background-color:#F26E22">Try Again</a>
+        </div>
+      </div>
+  </div>
+</div>
 
 		<script>
 			var e = document.getElementById("flip-1");
