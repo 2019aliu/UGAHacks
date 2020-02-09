@@ -30,19 +30,19 @@ def makeTransactions(buys, shorts):
 
 def initializeLevelOne():
     level1 = Level(105000)
-	myUser = User(['AAPL', 'BLK', 'MSFT', 'JPM'],level1)
+    myUser = User(['AAPL', 'BLK', 'MSFT', 'JPM'], level1)
     return myUser
 
 def initializeLevelTwo():
-	myUser = User(['AAPL', 'BLK', 'MSFT', 'JPM'])
-	level2 = Level()
+    myUser = User(['AAPL', 'BLK', 'MSFT', 'JPM'])
+    level2 = Level()
 
 def initializeLevelThree():
-	myUser = User(['BLK', 'AAPL', 'NYT', 'DIS', 'GE', 'JPM', 'MSFT'])
-	level3 = Level()
+    myUser = User(['BLK', 'AAPL', 'NYT', 'DIS', 'GE', 'JPM', 'MSFT'])
+    level3 = Level()
 
 def getNewValuation(inputUser):
-	return inputUser.getTotalAssets()
+    return inputUser.getTotalAssets()
 
 def getStocksBought():
     return myUser.getStockList()
