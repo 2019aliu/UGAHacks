@@ -461,46 +461,47 @@
 
 </div>
 
-	<div class="center">
-		<div id="pass" class="modal">
-			<div class="modal-content">
-				<div class="modal-header">
-					<span class="close">&times;</span>
-					<h2> Result: Passed!</h2>
-				</div>
+<div id="pass" class="modal">
+    <div class="modal-content" style="max-height:600px;max-width:600px">
+      <div class="modal-header">
+        <p style="font-size:25px;margin-left:15px;color:gray;text-align:center">Level 2 Result: Passed!</p><br>
+      </div>
+      <div class="modal-body" style="text-align:left;max-height:150px">
+            <br><h6><strong>2016: Yearly Fluctuations</strong></h6>
+            <p>
+                Analysts expected S&P 500 earnings growth of 10%, to $128 a share in 2016, but instead, earnings are likely to come in flat, at $118. The market’s forward price/earnings ratio has expanded, however, from 16 times to 17 times. The dollar rose 4% in 2016.
+                <br><br><br><a href="https://www.barrons.com/articles/2016-market-in-review-1483167644?fbclid=IwAR1Ytxdbyza6AG3gy2FBHRg4LJbfYrw3Qp2_lbHVC_VdBLTB4MU7a2yKHhg" style="color:#F26E22">Read More</a>
+            </p>
+      </div>
+      <div class="modal-footer">
+        <div class="right"><br>
+            <a href={{ url_for('home')}} class="btn btn-secondary">Exit</a>
+            <a href={{ url_for('levThree')}} class="btn btn-primary" style="background-color:#F26E22">Continue to Level 3</a>
+        </div>
+      </div>
+  </div>
+</div>
 
-				<div class="modal-body">
-					<p>You did the thing!</p>
-				</div>
-
-				<div class="modal-footer">
-					<div class="right">
-						<a href={{ url_for('home')}} class="button2">Exit</a>
-						<a href={{ url_for('levThree')}} class="button3">Continue</a>
-					</div>
-				</div>
-			</div>
-		</div>
-
-		<div id="fail" class="modal">
-			<div class="modal-content">
-				<div class="modal-header">
-					<span class="close">&times;</span>
-					<h2> Result: Not Quite!</h2>
-				</div>
-
-				<div class="modal-body">
-					<p>You didn't do the thing!</p>
-				</div>
-
-				<div class="modal-footer">
-					<div class="right">
-						<a href={{ url_for('home')}} class="button2">Exit</a>
-						<a href={{ url_for('levTwo')}} class="button3">Try Again</a>
-					</div>
-				</div>
-			</div>
-		</div>
+<div id="fail" class="modal">
+    <div class="modal-content" style="max-height:600px;max-width:600px">
+      <div class="modal-header">
+        <p style="font-size:25px;margin-left:15px;color:gray;text-align:center">Level 2 Result: Failed</p><br>
+      </div>
+      <div class="modal-body" style="text-align:left;max-height:150px">
+            <br><h6><strong>Hint: Current Events</strong></h6>
+            <p>
+            When were there fluctuations in the stock market? Were there any factors that greatly impacted the stock market?
+            <br><br><br><a href="https://www.barrons.com/articles/2016-market-in-review-1483167644?fbclid=IwAR1Ytxdbyza6AG3gy2FBHRg4LJbfYrw3Qp2_lbHVC_VdBLTB4MU7a2yKHhg" style="color:#F26E22">Read More</a>
+            </p>
+      </div>
+      <div class="modal-footer">
+        <div class="right"><br>
+            <a href={{ url_for('home')}} class="btn btn-secondary">Exit</a>
+            <a href={{ url_for('levTwo')}} class="btn btn-primary" style="background-color:#F26E22">Try Again</a>
+        </div>
+      </div>
+  </div>
+</div>
 
 		<script>
 			var e = document.getElementById("flip-1");
