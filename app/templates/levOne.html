@@ -333,7 +333,7 @@
     <div class = "col-sm-6">
         <div class = "card" style="width:450px;text-align:left;"><br>
             <h2>Order Stock</h2>
-            <form action="">
+            <form action="http://127.0.0.1:5000/level1/result/{{numDays}}" method = "POST">
               <div class="form-group">
                 <label for="email">Email address:</label>
                 <input type="email" class="form-control" placeholder="Enter email" id="email">
@@ -347,7 +347,7 @@
                   <input class="form-check-input" type="checkbox"> Remember me
                 </label>
               </div>
-              <button type="submit" class="btn btn-primary" value="Do Something">Submit</button>
+              <input type="submit" name="submit_button" value="Do Something Else">Submit</input>
             </form>
     </div>
 
@@ -409,35 +409,18 @@
   <div class ="row">
     <div class="col-sm-2"></div>
     <div class="col-sm-4">
-          <div class="dropdown center" style="text-align: center;">
-          <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" style="background-color: #F26E22;
-            color: white;
-            padding: 15px 28px;
-            text-align: center;
-            text-decoration: none;
-            display: inline-block;
-            font-size: 20px;
-            font-family: 'Arial Light';
-            vertical-align: middle;
-            border-radius: 1px;">
-            Select Run Time
-          </button>
-          <div class="dropdown-menu">
-            <a class="dropdown-item" href="#">One Week</a>
-            <a class="dropdown-item" href="#">Two Weeks</a>
-            <a class="dropdown-item" href="#">One Month</a>
-          </div>
-        </div>
-        <form action="">
+        <form action="http://127.0.0.1:5000/level1/result/{{numDays}}" method = "POST">
           <div class="form-group">
             <label for="sel1">Select list:</label>
             <select class="form-control" id="sel1">
-              <option>Buy</option>
-              <option>Sell</option>
+              <option>One Week</option>
+              <option>Two Weeks</option>
+              <option>One MontH</option>
             </select>
           </div>
-          <button type="submit" class="btn btn-primary" value="Do Something Else">Submit</button>
+          <input type="submit" name="submit_button" value="Do Something">Submit</input>
         </form>
+</div>
 </div>
 
 <br><br><br><br><br><br><br>

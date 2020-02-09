@@ -4,6 +4,8 @@ from user import *
 
 app = Flask(__name__)
 
+myUser = initializeLevelOne()
+
 @app.route('/')
 def index():
     user = {'username': 'Miguel'}
@@ -21,16 +23,19 @@ def index():
 
 @app.route('/level1', methods=['GET','POST'])
 def level1():
-    if(request.method == 'POST'):
+    return render_template('levOne.html', data = myUser.getHistoricalData(), assets = myUser.getTotalAssets(), portfolio = myUser.getStockList(), numDays = myUser.getLevel().getNumDays())
+
+@app.route('/level1/result/<days>', methods=['GET','POST'])
+def results(days = 0):
+    if (request.method == 'POST'):
         if request.form['submit_button'] == 'Do Something':
-            print("owo")
+            return("owo")
         elif request.form['submit_button'] == 'Do Something Else':
-            print("uwu")
+            return("uwu")
         else:
-            print("hehe")
-    else:
-        myUser = initializeLevelOne()
-        return render_template('levOne.html', data = myUser.getHistoricalData(), assets = myUser.getTotalAssets(), portfolio = myUser.getStockList(), numDays = myUser.getLevel().getNumDays())
+            return("hehe")
+        return render_template('index.html')
+    return render_template('index.html')
 
 @app.route('/level2')
 def level2():
