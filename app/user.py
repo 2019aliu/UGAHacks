@@ -1,12 +1,12 @@
 from stock import Stock
 from level import Level
+from datetime import *
 
 class User:
 	def __init__(self, stockList, level):
 		self.liquidAssets = 100000
 		self.stocksBought = {stock: 0 for stock in stockList}
 		self.stocksShorted = {stock: 0 for stock in stockList}
-		stockz = Stock("AAPL")
 		self.stockObjects = [Stock(stock) for stock in stockList]
 		self.updatedStockValues = {stock: stonk.getPrice() for stock, stonk in zip(stockList, self.stockObjects)}
 		self.totalAssets = 0
@@ -16,9 +16,20 @@ class User:
 		self.previousDate = 0
 		self.currentDate = 0
 		self.level = level
+		self.stockList = stockList
 
 	def getLevel(self):
 		return self.level
+
+	def getHistoricalData(self):
+		historicD = {stock: {} for stock in self.stockList}
+		count = 0
+		while (count < len(historicD)):
+			self.stockObjects[count].setDate(datetime(2003, 1, 2))
+			historicD[self.stockObjects[count].getTicker()] = self.stockObjects[count].updatePriceWithNumDays(7)
+			count += 1
+		return historicD
+
 
 	def getStockList(self):
 		return self.stocksBought
@@ -77,3 +88,5 @@ class User:
 			self.done = True
 		self.totalAssets = 0
 
+user = User({'BLK', 'AAPL', 'JPM', 'MSFT'}, Level(105000))
+print(user.getHistoricalData())

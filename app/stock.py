@@ -30,6 +30,12 @@ class Stock:
 	def getPastData(self):
 		return self.data
 
+	def getTicker(self):
+		return self.ticker
+
+	def setDate(self, date):
+		self.date = date
+
 	def updatePriceWithDate(self, day):
 		# newDate = datetime.strptime(day, "%Y-%m-%d")
 		# self.price = db.stocksOhTwo.find_one({"stringDate": newDate})[self.name]
@@ -41,11 +47,15 @@ class Stock:
 		# return self.price
 	
 	def updatePriceWithNumDays(self, numDays):
-		self.price = db.stocksOhTwo.find_one({"stringDate": str(self.date + timedelta(days=numDays))})[self.name]
+		self.price = db.stocksOhTwo.find_one({"stringDate": str(self.date + timedelta(days=numDays))})
 		self.date = self.date + timedelta(days=numDays)
 		self.data = []
 		for i in range(7):
-			self.data.append(db.stocksOhTwo.find_one({"stringDate": str(self.date - timedelta(days=i))})[self.name])
+			insideList = []
+			insideList.append(db.stocksOhTwo.find_one({"stringDate": str(self.date - timedelta(days=i))}))
+			insideList.append(str(self.date - timedelta(days=i)))
+			insideList.append("hi")
+			self.data.append(insideList)
 
 # testS = Stock("AAPL")
 # print(testS.getPrice())
