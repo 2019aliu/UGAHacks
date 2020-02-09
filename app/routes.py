@@ -47,7 +47,7 @@ def results(days = 0):
 
 @app.route('/level2', methods=['GET','POST'])
 def level2():
-    return render_template('levOne.html', histData = myUserTwo.getHistoricalData(), assets = myUserTwo.getTotalAssets(), portfolio = myUserTwo.getStocksBought(), currentDate = myUserTwo.getCurrentDate())
+    return render_template('levTwo.html', histData = myUserTwo.getHistoricalData(), assets = myUserTwo.getTotalAssets(), portfolio = myUserTwo.getStocksBought(), currentDate = myUserTwo.getCurrentDate())
 
 @app.route('/level2/result/<days>', methods=['GET','POST'])
 def results2(days = 0):
