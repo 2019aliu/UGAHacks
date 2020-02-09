@@ -1,5 +1,7 @@
 from flask import render_template
 from app import app
+from api import *
+from user import *
 
 @app.route('/')
 def index():
@@ -18,16 +20,16 @@ def index():
 
 @app.route('/level1')
 def level1():
-    
-    return render_template('levOne.html')
+    myUser = initializeLevelOne()
+    return render_template('levOne.html', historicalData, myUser.getTotalAssets(), myUser.getStockList(), myUser.getLevel().getNumDays())
 
 @app.route('/level2')
 def level2():
-    return render_template('levOne.html')
+    return render_template('levTwo.html')
 
 @app.route('/level3')
 def level3():
-    return render_template('levOne.html')
+    return render_template('levThree.html')
 
 @app.route('/end')
 def endPage():

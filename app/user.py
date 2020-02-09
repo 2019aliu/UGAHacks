@@ -15,6 +15,10 @@ class User:
 		self.short = 0
 		self.previousDate = 0
 		self.currentDate = 0
+		self.level = level
+
+	def getLevel(self):
+		return self.level
 
 	def getStockList(self):
 		return self.stocksBought
@@ -29,8 +33,8 @@ class User:
 		self.stocksShorted[stock.ticker] += 1
 		self.liquidAssets = self.liquidAssets + self.stockShorted[stock.ticker].getPrice()
 		if (self.previousDate == 0):
-			self.previousDate = level.getNumDays()
-		self.currentDate = level.getNumDays()
+			self.previousDate = self.level.getNumDays()
+		self.currentDate = self.level.getNumDays()
 
 
 	def sellStock(self, stock):

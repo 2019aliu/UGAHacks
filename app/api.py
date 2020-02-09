@@ -25,12 +25,13 @@ def makeTransactions(buys, shorts):
         else:
             for i in range(0 - shorts[short]):
                 myUser.sellShort(short)
-    
+
     # maybe provide a final valuation here?
 
 def initializeLevelOne():
-	myUser = User(['AAPL', 'BLK', 'MSFT', 'JPM'])
-	level1 = Level()
+    level1 = Level(105000)
+	myUser = User(['AAPL', 'BLK', 'MSFT', 'JPM'],level1)
+    return myUser
 
 def initializeLevelTwo():
 	myUser = User(['AAPL', 'BLK', 'MSFT', 'JPM'])
