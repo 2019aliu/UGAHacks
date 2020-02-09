@@ -3,7 +3,7 @@ from level import Level
 
 class User:
 	def __init__(self, stockList, level):
-		self.liquidAssets = 10000
+		self.liquidAssets = 100000
 		self.stocksBought = {stock: 0 for stock in stockList}
 		self.stocksShorted = {stock: 0 for stock in stockList}
 		stockz = Stock("AAPL")
@@ -73,10 +73,3 @@ class User:
 			self.done = True
 		self.totalAssets = 0
 
-
-user = User({'BLK', 'AAPL', 'JPM', 'MSFT'}, Level(1, 1))
-print(user.getStockList())
-user.buyStock(Stock("BLK"))
-print(user.getTotalAssets())
-user.sellStock(Stock("BLK"))
-print(user.getStockList())
