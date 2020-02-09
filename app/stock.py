@@ -27,7 +27,8 @@ class Stock:
 		self.price = db.stocksOhTwo.find_one({"stringDate": str(day)})[self.name]
 		# return self.price
 	
-	def updatePriceWithNumDays(self, numDays)
+	def updatePriceWithNumDays(self, numDays):
+		self.price = db.stocksOhTwo.find_one({"stringDate": str(self.date + timedelta(days=numDays))})[self.name]
 
 # testS = Stock("AAPL")
 # print(testS.getPrice())

@@ -10,5 +10,5 @@ import datetime
 
 testStock = Stock("AAPL")
 print(testStock.getPrice())
-testStock.updatePriceWithDate(datetime.date(2004, 5, 17))
+testStock.updatePriceWithNumDays(369)
 print(testStock.getPrice())
