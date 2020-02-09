@@ -9,21 +9,21 @@ class User:
 		self.done = false
 		self.success = false
 
-	def buyStock(stock.ticker):
+	def buyStock(stock):
 		if (liquidAssets >= stock.getPrice()):
 			stocksBought[stock.ticker] = stocksBought[stock.ticker] + 1
 			liquidAssets = liquidAssets - stock.getPrice()
 
-	def buyShort(stock.ticker):
+	def buyShort(stock):
 		if (liquidAssets >= stock.getPrice()):
 			stocksShorted[stock.ticker] = stocksShorted[stock.ticker] + 1
 		
-	def sellStock(stock.ticker):
+	def sellStock(stock):
 		if (stocksBought[stock.ticker] >= 1):
 			stocksBought[stock.ticker] = stocksBought[stock.ticker] - 1
 			liquidAssets = liquidAssets + stock.getPrice()
 
-	def sellShort(stock.ticker):
+	def sellShort(stock):
 		if (stockShorted[stock.ticker] >= 1):
 			stocksShorted[stock.ticker] = stocksShorted[stock.ticker] - 1
 
